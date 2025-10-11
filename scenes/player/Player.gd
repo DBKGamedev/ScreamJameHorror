@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var rotate_sprite := true
 
 func _physics_process(delta):
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
 	
 	if input_dir != Vector2.ZERO:
 		velocity = velocity.move_toward(input_dir * speed, acceleration * delta)
