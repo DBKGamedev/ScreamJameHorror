@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @export var speed := 200.0
-@export var acceleration := 2000.0
-@export var friction := 2000.0
+@export var acceleration := 10000.0
+@export var friction := 10000.0
 @export var rotate_sprite := true
 
 func _physics_process(delta):
