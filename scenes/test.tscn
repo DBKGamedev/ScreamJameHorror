@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfj851lbvm38i"]
+
+[ext_resource type="PackedScene" uid="uid://ct67lmno2sx86" path="res://scenes/interaction/interactable.tscn" id="1_bl13t"]
+[ext_resource type="Script" uid="uid://bvr0xqgax36h3" path="res://scenes/test.gd" id="1_iyx0m"]
+[ext_resource type="Texture2D" uid="uid://b3ubbfybexhes" path="res://icon.svg" id="2_iyx0m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74lek"]
+radius = 168.36
+
+[node name="test" type="Node2D"]
+script = ExtResource("1_iyx0m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.431373, 1, 0.431373, 1)
+texture = ExtResource("2_iyx0m")
+
+[node name="interactable" parent="." instance=ExtResource("1_bl13t")]
+interact_name = "dfgd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable"]
+shape = SubResource("CircleShape2D_74lek")
+
+[connection signal="interacted" from="interactable" to="." method="_on_interactable_interacted"]
