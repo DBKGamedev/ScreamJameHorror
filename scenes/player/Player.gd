@@ -19,9 +19,11 @@ func on_health_depleted():
 
 func _process(delta: float) -> void:
 	if velocity == Vector2.ZERO:
-		pass
+		animation_tree.get("parameters/playback").travel("idle")
 	else:
+		animation_tree.get("parameters/playback").travel("walk")
 		animation_tree.set("parameters/idle/blend_position", velocity.normalized())
+		animation_tree.set("parameters/walk/blend_position", velocity.normalized())
 
 func _physics_process(_delta):
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
