@@ -15,7 +15,6 @@ modulate = Color(0.431373, 1, 0.431373, 1)
 texture = ExtResource("2_iyx0m")
 
 [node name="interactable" parent="." instance=ExtResource("1_bl13t")]
-interact_name = "test"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable"]
 shape = SubResource("CircleShape2D_74lek")
