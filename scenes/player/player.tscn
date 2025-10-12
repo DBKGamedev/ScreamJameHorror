@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cqxq1ednm13ea" path="res://assets/art/player/Protag_ RightSide_Walk02.png" id="13_myrg7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvxji"]
-radius = 7.0
-height = 24.0
+radius = 8.0
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_0owmy"]
 resource_name = "idle_front"
@@ -252,12 +252,12 @@ metadata/_custom_type_script = "uid://d3hhf26x7rs5i"
 [node name="InteractorComponent" parent="." instance=ExtResource("4_lvxji")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 14)
+position = Vector2(0, 19)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_lvxji")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-scale = Vector2(1.25, 1.25)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_5gtgg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
