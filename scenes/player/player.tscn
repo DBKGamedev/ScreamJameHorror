@@ -1,12 +1,141 @@
-[gd_scene load_steps=6 format=3 uid="uid://b440u4pbfdpwr"]
+[gd_scene load_steps=23 format=3 uid="uid://b440u4pbfdpwr"]
 
 [ext_resource type="Script" uid="uid://4grb4daqma43" path="res://scenes/player/Player.gd" id="1_dovo2"]
-[ext_resource type="Texture2D" uid="uid://b3ubbfybexhes" path="res://icon.svg" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://d3hhf26x7rs5i" path="res://scripts/health_component.gd" id="2_lvxji"]
 [ext_resource type="PackedScene" uid="uid://55yx3c7jrhbp" path="res://scenes/interaction/interactor_component.tscn" id="4_lvxji"]
+[ext_resource type="Texture2D" uid="uid://drmfc4a54hsis" path="res://assets/art/player/Protag_ Back_Stand.png" id="4_p47bc"]
+[ext_resource type="Texture2D" uid="uid://do3p0kht7e3ma" path="res://assets/art/player/Protag_ Front_Stand.png" id="5_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://due58tvx17gww" path="res://assets/art/player/Protag_ LeftSide_Stand.png" id="6_gx1jg"]
+[ext_resource type="Texture2D" uid="uid://tkagsqct6obt" path="res://assets/art/player/Protag_ RightSide_Stand.png" id="7_ugbui"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kelw5"]
-size = Vector2(32, 32)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvxji"]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="Animation" id="Animation_0owmy"]
+resource_name = "idle_front"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_5gtgg"), ExtResource("5_5gtgg")]
+}
+
+[sub_resource type="Animation" id="Animation_qek5x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_5gtgg")]
+}
+
+[sub_resource type="Animation" id="Animation_5gtgg"]
+resource_name = "idle_back"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_p47bc"), ExtResource("4_p47bc")]
+}
+
+[sub_resource type="Animation" id="Animation_h17s1"]
+resource_name = "idle_left"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_gx1jg"), ExtResource("6_gx1jg")]
+}
+
+[sub_resource type="Animation" id="Animation_je7p5"]
+resource_name = "idle_right"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_ugbui"), ExtResource("7_ugbui")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fm80t"]
+_data = {
+&"RESET": SubResource("Animation_qek5x"),
+&"idle_back": SubResource("Animation_5gtgg"),
+&"idle_front": SubResource("Animation_0owmy"),
+&"idle_left": SubResource("Animation_h17s1"),
+&"idle_right": SubResource("Animation_je7p5")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0owmy"]
+animation = &"idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qek5x"]
+animation = &"idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5gtgg"]
+animation = &"idle_back"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h17s1"]
+animation = &"idle_front"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_je7p5"]
+animation = &"idle_front"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_je7p5"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0owmy")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_qek5x")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_5gtgg")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_h17s1")
+blend_point_3/pos = Vector2(0, 1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_je7p5")
+blend_point_4/pos = Vector2(0, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fm80t"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gx1jg"]
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_je7p5")
+states/idle/position = Vector2(391, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fm80t")]
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -18,15 +147,26 @@ metadata/_custom_type_script = "uid://d3hhf26x7rs5i"
 
 [node name="InteractorComponent" parent="." instance=ExtResource("4_lvxji")]
 
-[node name="PlayerSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_gmlin")
-region_rect = Rect2(0, 0, 128, 128)
-region_filter_clip_enabled = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_kelw5")
+position = Vector2(0, 14)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lvxji")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("5_5gtgg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.25, 1.25)
 position_smoothing_speed = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fm80t")
+}
+autoplay = "idle_front"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_gx1jg")
+anim_player = NodePath("../AnimationPlayer")
+parameters/idle/blend_position = Vector2(0, 0)

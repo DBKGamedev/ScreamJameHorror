@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed := 220.0
 @export var rotate_sprite := false
 
+@onready var animation_tree: AnimationTree = $AnimationTree
 
 var health_component: HealthComponent
 
@@ -15,6 +16,12 @@ func _ready():
 
 func on_health_depleted():
 	SignalBus.on_player_died.emit()
+
+func _process(delta: float) -> void:
+	if velocity == Vector2.ZERO:
+		pass
+	else:
+		animation_tree.set("parameters/idle/blend_position", velocity.normalized())
 
 func _physics_process(_delta):
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
