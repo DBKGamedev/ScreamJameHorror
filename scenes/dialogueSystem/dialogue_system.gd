@@ -31,26 +31,24 @@ func _process(delta: float) -> void:
 		_next_item = false
 		var i = _dilogue[_current_dialogue_item]
 		
-		match i:
-			DialogueFunction:
-				if i.hide_dialogue_box:
-					visible = false
-				else:
-					visible = true
-				_fuction_resource(i)
-			
-			DialogueChoice:
+		if i is DialogueFunction:
+			if i.hide_dialogue_box:
+				visible = false
+			else:
 				visible = true
-				_choice_resource(i)
+			_fuction_resource(i)
+		elif i is DialogueChoice:
+			visible = true
+			_choice_resource(i)
 			
-			DialougeText:
-				visible = true
-				_text_resource(i)
+		elif i is DialougeText:
+			visible = true
+			_text_resource(i)
 			
-			_:
-				print(i)
-				printerr("ERROR: ADDED DE RESOURCE TO DIALOGUE TREE")
-				_move_to_next_item()
+		else:
+			print(i)
+			printerr("ERROR: ADDED DE RESOURCE TO DIALOGUE TREE")
+			_move_to_next_item()
 
 func _fuction_resource(i: DialogueFunction) -> void:
 	var target_node = get_node(i.traget_path)
@@ -93,7 +91,7 @@ func _choice_resource(i: DialogueChoice) -> void:
 			_DilogueButton.connect("pressed", _choice_button_pressed.bind(null, ""), CONNECT_ONE_SHOT)
 		
 		$HBoxContainer/VBoxContainer/ButtonContainer.add_child(_DilogueButton)
-	$HBoxContainer/VBoxContainer/ButtonContainer.get_child(0).grab_focus()
+	#$HBoxContainer/VBoxContainer/ButtonContainer.get_child(0).grab_focus()
 
 func _choice_button_pressed(target_node: Node, WFSTC:String) -> void:
 	$HBoxContainer/VBoxContainer/ButtonContainer.visible = false

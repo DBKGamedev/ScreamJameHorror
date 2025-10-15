@@ -10,8 +10,8 @@ const DIALOGUE_SYSTEM = preload("res://scenes/dialogueSystem/dialogue_system.tsc
 
 @onready var interactable: Area2D = $interactable
 
-var _dialogue_top_pos: Vector2 = Vector2(160, 48)
-var _dialogue_bottom_pos: Vector2 = Vector2(160, 192)
+var _dialogue_top_pos: Vector2 = Vector2(160, 96)
+var _dialogue_bottom_pos: Vector2 = Vector2(160, 153)
 
 var _player_body_in: bool = false
 var _has_activated: bool = false

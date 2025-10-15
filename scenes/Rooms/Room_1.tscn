@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://csvwsbcynulct"]
+[gd_scene load_steps=15 format=4 uid="uid://csvwsbcynulct"]
 
 [ext_resource type="Texture2D" uid="uid://u27omohccwl1" path="res://assets/art/tiles/tileset.png" id="1_hnbyo"]
 [ext_resource type="PackedScene" uid="uid://b440u4pbfdpwr" path="res://scenes/player/player.tscn" id="1_scgta"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="4_cf6fw"]
 [ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="5_4pyy6"]
 [ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="6_tlma1"]
+[ext_resource type="Script" uid="uid://beitjq1vre0u6" path="res://resource/dialouge/DialougeFunction.gd" id="7_y5yvr"]
+[ext_resource type="Script" uid="uid://dcoquvxvys1s" path="res://resource/dialouge/DialogueChoice.gd" id="8_2mtq0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fbq1s"]
 texture = ExtResource("1_hnbyo")
@@ -189,7 +191,30 @@ sources/42 = SubResource("TileSetAtlasSource_fbq1s")
 [sub_resource type="Resource" id="Resource_y5yvr"]
 script = ExtResource("6_tlma1")
 text = "test"
-text_speed = 1.0
+text_speed = 16.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_2xcnj"]
+script = ExtResource("6_tlma1")
+text = "yup this is a test"
+text_speed = 16.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_jsqw7"]
+script = ExtResource("8_2mtq0")
+text = "Do you belive this is a test?"
+choice_text = Array[String](["yes", "no"])
+choice_function_call = Array[ExtResource("7_y5yvr")]([null, null])
+metadata/_custom_type_script = "uid://dcoquvxvys1s"
+
+[sub_resource type="Resource" id="Resource_2mtq0"]
+script = ExtResource("6_tlma1")
+text = "Tbh i dont really care if you think this is a test or not lol"
+text_speed = 16.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
@@ -206,7 +231,6 @@ tile_set = SubResource("TileSet_scgta")
 position = Vector2(-222, 2)
 
 [node name="DialogueMaker" parent="test" instance=ExtResource("4_cf6fw")]
-activate_instant = true
-dialouge = Array[ExtResource("5_4pyy6")]([SubResource("Resource_y5yvr")])
+dialouge = Array[ExtResource("5_4pyy6")]([SubResource("Resource_y5yvr"), SubResource("Resource_2xcnj"), SubResource("Resource_jsqw7"), SubResource("Resource_2mtq0")])
 
 [editable path="test/DialogueMaker"]

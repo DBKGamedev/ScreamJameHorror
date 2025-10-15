@@ -19,7 +19,7 @@ func on_health_depleted():
 	SignalBus.on_player_died.emit()
 
 func _process(delta: float) -> void:
-	if velocity == Vector2.ZERO:
+	if velocity == Vector2.ZERO or !can_move:
 		animation_tree.get("parameters/playback").travel("idle")
 	else:
 		animation_tree.get("parameters/playback").travel("walk")

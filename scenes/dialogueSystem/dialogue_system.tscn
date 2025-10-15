@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbwkvxiq1akhe"]
+[gd_scene load_steps=4 format=3 uid="uid://bbwkvxiq1akhe"]
 
 [ext_resource type="Script" uid="uid://btr074uqlxt35" path="res://scenes/dialogueSystem/dialogue_system.gd" id="1_2tva7"]
+[ext_resource type="FontFile" uid="uid://so3p7rhb1x44" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="2_mvt7s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8ild"]
 bg_color = Color(0, 0, 0, 1)
@@ -9,13 +10,14 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [node name="DialogueSystem" type="Node2D"]
 z_index = 4067
+scale = Vector2(2, 2)
 script = ExtResource("1_2tva7")
 
 [node name="Panel" type="Panel" parent="."]
@@ -38,6 +40,8 @@ size_flags_horizontal = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_mvt7s")
+theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
 scroll_active = false
 visible_characters_behavior = 1
