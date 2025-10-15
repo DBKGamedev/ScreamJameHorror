@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://burws88c883lc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clixu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fubi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xm4u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dwev"]
+
+[node name="DialougeButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.726219, 2.7615e-05, 1.44392e-05, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.72549, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clixu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8fubi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3xm4u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2dwev")

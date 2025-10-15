@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player
 
 # Movement variables
 @export var speed := 220.0
@@ -7,9 +8,9 @@ extends CharacterBody2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 var health_component: HealthComponent
+var can_move : bool = true
 
 func _ready():
-
 	health_component = $HealthComponent
 	if health_component:
 		health_component.health_depleted.connect(on_health_depleted)
@@ -26,6 +27,9 @@ func _process(delta: float) -> void:
 		animation_tree.set("parameters/walk/blend_position", velocity.normalized())
 
 func _physics_process(_delta):
+	if !can_move:
+		animation_tree.get("parameters/playback").travel("idle")
+		return
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = input_dir * speed
 	move_and_slide()
