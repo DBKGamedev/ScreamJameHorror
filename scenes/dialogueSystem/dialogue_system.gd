@@ -48,6 +48,7 @@ func _process(delta: float) -> void:
 				_text_resource(i)
 			
 			_:
+				print(i)
 				printerr("ERROR: ADDED DE RESOURCE TO DIALOGUE TREE")
 				_move_to_next_item()
 

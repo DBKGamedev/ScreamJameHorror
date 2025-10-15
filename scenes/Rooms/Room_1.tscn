@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://csvwsbcynulct"]
+[gd_scene load_steps=10 format=4 uid="uid://csvwsbcynulct"]
 
 [ext_resource type="Texture2D" uid="uid://u27omohccwl1" path="res://assets/art/tiles/tileset.png" id="1_hnbyo"]
 [ext_resource type="PackedScene" uid="uid://b440u4pbfdpwr" path="res://scenes/player/player.tscn" id="1_scgta"]
 [ext_resource type="PackedScene" uid="uid://bfj851lbvm38i" path="res://scenes/test.tscn" id="3_aciaf"]
+[ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="4_cf6fw"]
+[ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="5_4pyy6"]
+[ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="6_tlma1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fbq1s"]
 texture = ExtResource("1_hnbyo")
@@ -183,6 +186,14 @@ terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(1.92523e-06, 0.534871, 0.192863, 1)
 sources/42 = SubResource("TileSetAtlasSource_fbq1s")
 
+[sub_resource type="Resource" id="Resource_y5yvr"]
+script = ExtResource("6_tlma1")
+text = "test"
+text_speed = 1.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
 [node name="Room_1" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -193,3 +204,9 @@ tile_set = SubResource("TileSet_scgta")
 
 [node name="test" parent="." instance=ExtResource("3_aciaf")]
 position = Vector2(-222, 2)
+
+[node name="DialogueMaker" parent="test" instance=ExtResource("4_cf6fw")]
+activate_instant = true
+dialouge = Array[ExtResource("5_4pyy6")]([SubResource("Resource_y5yvr")])
+
+[editable path="test/DialogueMaker"]

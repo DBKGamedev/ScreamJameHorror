@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://biyy153h1xls5"]
+
+[ext_resource type="Script" uid="uid://b3c6re7hvwm8n" path="res://scenes/dialogueSystem/dialogue_maker.gd" id="1_oy20i"]
+[ext_resource type="PackedScene" uid="uid://ct67lmno2sx86" path="res://scenes/interaction/interactable.tscn" id="2_5bri4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bri4"]
+radius = 125.016
+
+[node name="DialogueMaker" type="Node2D"]
+script = ExtResource("1_oy20i")
+
+[node name="interactable" parent="." instance=ExtResource("2_5bri4")]
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable"]
+shape = SubResource("CircleShape2D_5bri4")
+
+[connection signal="body_entered" from="interactable" to="." method="_on_interactable_body_entered"]
+[connection signal="body_exited" from="interactable" to="." method="_on_interactable_body_exited"]
+[connection signal="interacted" from="interactable" to="." method="_on_interactable_interacted"]
