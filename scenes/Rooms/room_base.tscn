@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://blhbhh3455tc3"]
+[gd_scene load_steps=5 format=3 uid="uid://blhbhh3455tc3"]
 
 [ext_resource type="Script" uid="uid://c5it4iw56fet4" path="res://scenes/Rooms/room_base.gd" id="1_2d3yg"]
 [ext_resource type="Texture2D" uid="uid://u27omohccwl1" path="res://assets/art/tiles/tileset.png" id="1_odbsk"]
-[ext_resource type="PackedScene" uid="uid://b440u4pbfdpwr" path="res://scenes/player/player.tscn" id="2_tq1nx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tq1nx"]
 texture = ExtResource("1_odbsk")
@@ -191,5 +190,3 @@ z_index = -2
 tile_set = SubResource("TileSet_2d3yg")
 
 [node name="Door" type="Node" parent="."]
-
-[node name="Player" parent="." instance=ExtResource("2_tq1nx")]

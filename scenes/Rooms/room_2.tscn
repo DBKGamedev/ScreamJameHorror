@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bnay5aafluhlt"]
+[gd_scene load_steps=10 format=4 uid="uid://bnay5aafluhlt"]
 
 [ext_resource type="PackedScene" uid="uid://blhbhh3455tc3" path="res://scenes/Rooms/room_base.tscn" id="1_pfq81"]
 [ext_resource type="PackedScene" uid="uid://cbp3dtejadt1j" path="res://scenes/door/door.tscn" id="2_77yun"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="5_qlgwm"]
 [ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="6_abik5"]
 [ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="7_rwa2d"]
+[ext_resource type="PackedScene" uid="uid://b440u4pbfdpwr" path="res://scenes/player/player.tscn" id="8_s0rdk"]
 
 [sub_resource type="Resource" id="Resource_cvly2"]
 script = ExtResource("7_rwa2d")
@@ -42,13 +43,12 @@ metadata/_edit_lock_ = true
 [node name="spawn" parent="Door/Door_b" index="2"]
 position = Vector2(0, -44)
 
-[node name="Player" parent="." index="2"]
-position = Vector2(382, 540)
-
-[node name="test" parent="." index="3" instance=ExtResource("4_pn3j8")]
+[node name="test" parent="." index="2" instance=ExtResource("4_pn3j8")]
 position = Vector2(379.787, 434.848)
 
 [node name="DialogueMaker" parent="test" index="1" instance=ExtResource("5_qlgwm")]
 dialouge = Array[ExtResource("6_abik5")]([SubResource("Resource_cvly2")])
+
+[node name="Player" parent="." index="3" instance=ExtResource("8_s0rdk")]
 
 [editable path="Door/Door_b"]
