@@ -11,7 +11,7 @@ const DIALOGUE_SYSTEM = preload("res://scenes/dialogueSystem/dialogue_system.tsc
 @onready var interactable: Area2D = $interactable
 
 var _dialogue_top_pos: Vector2 = Vector2(160, 48)
-var _dialogue_bottom_pos: Vector2 = Vector2(160, 200)
+var _dialogue_bottom_pos: Vector2 = Vector2(160, 164)
 
 var _player_body_in: bool = false
 var _has_activated: bool = false
@@ -37,10 +37,8 @@ func _activate_dialoge() -> void:
 	if override_dialogue_position:
 		_disired_dialogue_pos = override_position
 	else:
-		if _player.global_position.y > get_viewport().get_camera_2d().get_screen_center_position().y:
-			_disired_dialogue_pos = _dialogue_top_pos
-		else:
-			_disired_dialogue_pos = _dialogue_bottom_pos
+	
+		_disired_dialogue_pos = _dialogue_bottom_pos
 	
 	Dialogue.global_position = _disired_dialogue_pos
 	Dialogue._dilogue = dialouge
