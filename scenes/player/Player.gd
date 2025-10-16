@@ -10,6 +10,9 @@ class_name player
 var health_component: HealthComponent
 var can_move : bool = true
 
+func _enter_tree() -> void:
+	NavigationManager.on_triger_player_spawn.connect(spawnPlayer)
+
 func _ready():
 	health_component = $HealthComponent
 	if health_component:
@@ -43,3 +46,15 @@ func take_damage(amount: int):
 func heal(amount: int):
 	if health_component:
 		health_component.add_health(amount)
+
+func spawnPlayer(pos: Vector2, dir: String) -> void:
+	global_position = pos
+	match dir:
+		"up":
+			animation_tree.set("parameters/idle/blend_position", Vector2(0, -1))
+		"down":
+			animation_tree.set("parameters/idle/blend_position", Vector2(0, 1))
+		"left":
+			animation_tree.set("parameters/idle/blend_position", Vector2(-1, 0))
+		"right":
+			animation_tree.set("parameters/idle/blend_position", Vector2(1, 0))
