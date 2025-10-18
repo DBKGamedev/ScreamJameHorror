@@ -1,9 +1,11 @@
 extends Node2D
+class_name DialogueMaker
 
 const DIALOGUE_SYSTEM = preload("res://scenes/dialogueSystem/dialogue_system.tscn")
 
 @export var activate_instant: bool
 @export var only_activate_once: bool
+@export var free_maker_after_finished: bool = false
 @export var override_dialogue_position: bool
 @export var override_position: Vector2
 @export var dialouge: Array[DE]
@@ -30,6 +32,7 @@ func _activate_dialoge() -> void:
 	_player.can_move = false
 	var Dialogue = DIALOGUE_SYSTEM.instantiate()
 	get_parent().add_child(Dialogue)
+	Dialogue.dialouge_finished.connect(dialouge_finished)
 	if override_dialogue_position:
 		_disired_dialogue_pos = override_position
 	else:
@@ -39,6 +42,11 @@ func _activate_dialoge() -> void:
 	Dialogue.global_position = _disired_dialogue_pos
 	Dialogue._dilogue = dialouge
 	_has_activated = true
+
+func dialouge_finished() -> void:
+	if free_maker_after_finished:
+		print("freed")
+		queue_free()
 
 func _on_interactable_interacted() -> void:
 	if !activate_instant and _player_body_in:
@@ -58,7 +66,6 @@ func _on_interactable_body_entered(body: Node2D) -> void:
 		_player_body_in = true
 		if activate_instant:
 			_activate_dialoge()
-
 
 func _on_interactable_body_exited(body: Node2D) -> void:
 	if body is player:

@@ -4,6 +4,8 @@ const DIALOGUE_BUTTON = preload("res://scenes/dialogueSystem/dialouge_button.tsc
 
 @onready var rich_text_label: RichTextLabel = $HBoxContainer/VBoxContainer/RichTextLabel
 
+signal dialouge_finished
+
 var _dilogue: Array[DE]
 var _current_dialogue_item: int = 0
 var _next_item: bool = true
@@ -25,6 +27,7 @@ func _process(delta: float) -> void:
 			return
 		_player.can_move = true
 		queue_free()
+		dialouge_finished.emit()
 		return
 	
 	if _next_item:

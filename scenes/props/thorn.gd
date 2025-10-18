@@ -9,6 +9,5 @@ func _enter_tree() -> void:
 
 func thorns_cut() -> void:
 	if _cutable:
-		print("cut thorns!")
 		visible = false
 		collision_shape_2d.disabled = true
