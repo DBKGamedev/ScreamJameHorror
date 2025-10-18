@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://budckitqvwpww"]
+
+[ext_resource type="Texture2D" uid="uid://dpfl211nqsuw4" path="res://assets/art/props/Tree White.png" id="1_d888c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d888c"]
+height = 36.0
+
+[node name="Tree" type="StaticBody2D"]
+
+[node name="TreeWhite" type="Sprite2D" parent="."]
+position = Vector2(13, -64)
+scale = Vector2(2, 2)
+texture = ExtResource("1_d888c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_d888c")

@@ -38,6 +38,7 @@ func _activate_dialoge() -> void:
 	
 	Dialogue.global_position = _disired_dialogue_pos
 	Dialogue._dilogue = dialouge
+	_has_activated = true
 
 func _on_interactable_interacted() -> void:
 	if !activate_instant and _player_body_in:

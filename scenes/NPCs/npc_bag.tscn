@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhxv67ry80ft6"]
+[gd_scene load_steps=14 format=3 uid="uid://dhxv67ry80ft6"]
 
 [ext_resource type="Texture2D" uid="uid://biea58gidb3n" path="res://assets/art/npc/Airbag.png" id="1_qxkwd"]
 [ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="2_igc0g"]
 [ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="3_nqgu4"]
 [ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="4_cmf3x"]
 [ext_resource type="AudioStream" uid="uid://jvssuuu2kiah" path="res://assets/SFX/IG_NPC_dial2_sfx.wav" id="4_igc0g"]
+[ext_resource type="Script" uid="uid://beitjq1vre0u6" path="res://resource/dialouge/DialougeFunction.gd" id="6_cmf3x"]
+[ext_resource type="Script" uid="uid://dcoquvxvys1s" path="res://resource/dialouge/DialogueChoice.gd" id="7_75adi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75adi"]
 size = Vector2(190, 168)
@@ -14,7 +16,44 @@ script = ExtResource("4_cmf3x")
 text = "[shake]Pain Pain Pain Pain[/shake]"
 text_speed = 20.0
 audioStream = ExtResource("4_igc0g")
-volume = -4.0
+volume = -2.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_7wbex"]
+script = ExtResource("4_cmf3x")
+text = "[shake]I can't take it no longer[/shake]"
+text_speed = 20.0
+audioStream = ExtResource("4_igc0g")
+volume = -2.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_ochdf"]
+script = ExtResource("7_75adi")
+text = "[shake]will you help me![/shake]"
+choice_text = Array[String](["Yes", "No", "Never", "Maybe"])
+choice_function_call = Array[ExtResource("6_cmf3x")]([null, null, null, null])
+metadata/_custom_type_script = "uid://dcoquvxvys1s"
+
+[sub_resource type="Resource" id="Resource_ib3v6"]
+script = ExtResource("4_cmf3x")
+text = "oh, I remembered. you can't help me"
+text_speed = 20.0
+audioStream = ExtResource("4_igc0g")
+volume = -2.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_vmyie"]
+script = ExtResource("4_cmf3x")
+text = "[shake]For you are in pain yourself[/shake]"
+text_speed = 20.0
+audioStream = ExtResource("4_igc0g")
+volume = -2.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
@@ -29,4 +68,4 @@ texture = ExtResource("1_qxkwd")
 shape = SubResource("RectangleShape2D_75adi")
 
 [node name="DialogueMaker" parent="." instance=ExtResource("2_igc0g")]
-dialouge = Array[ExtResource("3_nqgu4")]([SubResource("Resource_qxkwd")])
+dialouge = Array[ExtResource("3_nqgu4")]([SubResource("Resource_qxkwd"), SubResource("Resource_7wbex"), SubResource("Resource_ochdf"), SubResource("Resource_ib3v6"), SubResource("Resource_vmyie")])

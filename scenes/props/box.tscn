@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg317ksyxh0w0"]
+
+[ext_resource type="Texture2D" uid="uid://c8gol3shae6i8" path="res://assets/art/props/Box (1).png" id="1_nsoa3"]
+[ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="2_6d8kf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sidhr"]
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pvmgr"]
+radius = 36.0139
+
+[node name="box" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -13)
+texture = ExtResource("1_nsoa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -13)
+shape = SubResource("CircleShape2D_sidhr")
+
+[node name="DialogueMaker" parent="." instance=ExtResource("2_6d8kf")]
+
+[node name="CollisionShape2D" parent="DialogueMaker/interactable" index="0"]
+position = Vector2(2, -13)
+shape = SubResource("CircleShape2D_pvmgr")
+
+[editable path="DialogueMaker"]

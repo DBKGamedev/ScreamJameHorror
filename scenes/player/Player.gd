@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name player
 
 # Movement variables
-@export var speed := 220.0
+@export var speed := 180.0
 @export var rotate_sprite := false
 
 @onready var animation_tree: AnimationTree = $AnimationTree

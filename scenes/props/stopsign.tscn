@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc7bflpmqm66j"]
+
+[ext_resource type="Texture2D" uid="uid://b5yi57m5xpry7" path="res://assets/art/props/Props_stopsign.png" id="1_a6ctx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6ctx"]
+size = Vector2(81, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6ctx"]
+radius = 19.0
+
+[node name="PropsStopsign" type="StaticBody2D"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(62, -82)
+scale = Vector2(2, 2)
+texture = ExtResource("1_a6ctx")
+
+[node name="CollisionPolygon2D2" type="CollisionShape2D" parent="."]
+position = Vector2(110.5, -15)
+shape = SubResource("RectangleShape2D_a6ctx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_a6ctx")

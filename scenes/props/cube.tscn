@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwhwf6n57h3jx"]
+
+[ext_resource type="Texture2D" uid="uid://bfnof7jhd2for" path="res://assets/art/props/Sprite-0002.png" id="1_fa3cx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fa3cx"]
+size = Vector2(64, 64)
+
+[sub_resource type="Animation" id="Animation_1gix2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.7, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fa3cx"]
+resource_name = "strobe"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0.7, 1, 1), Color(1, 0.566667, 0, 1), Color(0.65, 0, 1, 1), Color(1, 0, 0.0166664, 1), Color(1, 0.866667, 0, 1), Color(0.233334, 0, 1, 1), Color(1, 0, 1, 1), Color(1, 0.416667, 0, 1), Color(0, 0.0666666, 1, 1), Color(1, 0, 0.0166664, 1), Color(0, 1, 0.15, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_meypq"]
+_data = {
+&"RESET": SubResource("Animation_1gix2"),
+&"strobe": SubResource("Animation_fa3cx")
+}
+
+[node name="cube" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.7, 1, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_fa3cx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fa3cx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_meypq")
+}
+autoplay = "strobe"

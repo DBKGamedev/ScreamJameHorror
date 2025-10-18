@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1fxk0v51pm1"]
+
+[ext_resource type="Texture2D" uid="uid://ck5b3wd4kenef" path="res://assets/art/props/Figure White.png" id="1_yy15o"]
+[ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="2_3ebl7"]
+[ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="3_adalb"]
+[ext_resource type="AudioStream" uid="uid://dfxtirx2qyebq" path="res://assets/SFX/IG_NPC_dial3_sfx.wav" id="4_mnxlc"]
+[ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="5_2eioe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b2yfs"]
+radius = 12.0
+height = 50.0
+
+[sub_resource type="Resource" id="Resource_d3ghb"]
+script = ExtResource("5_2eioe")
+text = "Pitter-patter Pitter-patter"
+text_speed = 24.0
+audioStream = ExtResource("4_mnxlc")
+volume = -4.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_phjoy"]
+radius = 57.0088
+
+[node name="Person" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-11, -32)
+texture = ExtResource("1_yy15o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_b2yfs")
+
+[node name="DialogueMaker" parent="." instance=ExtResource("2_3ebl7")]
+dialouge = Array[ExtResource("3_adalb")]([SubResource("Resource_d3ghb")])
+
+[node name="CollisionShape2D" parent="DialogueMaker/interactable" index="0"]
+position = Vector2(-3, -26)
+shape = SubResource("CircleShape2D_phjoy")
+
+[editable path="DialogueMaker"]

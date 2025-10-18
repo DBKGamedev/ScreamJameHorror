@@ -192,4 +192,4 @@ tile_set = SubResource("TileSet_2d3yg")
 
 [node name="Door" type="Node" parent="."]
 
-[node name="Props" type="Node" parent="."]
+[node name="Props" type="Node2D" parent="."]
