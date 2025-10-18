@@ -39,6 +39,9 @@ func _physics_process(_delta):
 	if rotate_sprite and velocity.length() > 0 and has_node("PlayerSprite"):
 		$PlayerSprite.rotation = velocity.angle()
 
+func test():
+	print("test")
+
 func take_damage(amount: int):
 	if health_component:
 		health_component.subtract_health(amount)

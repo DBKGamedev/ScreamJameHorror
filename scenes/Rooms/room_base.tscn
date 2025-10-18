@@ -183,6 +183,7 @@ terrain_set_0/terrain_1/color = Color(1.92523e-06, 0.534871, 0.192863, 1)
 sources/42 = SubResource("TileSetAtlasSource_tq1nx")
 
 [node name="RoomBase" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_2d3yg")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -190,3 +191,5 @@ z_index = -2
 tile_set = SubResource("TileSet_2d3yg")
 
 [node name="Door" type="Node" parent="."]
+
+[node name="Props" type="Node" parent="."]

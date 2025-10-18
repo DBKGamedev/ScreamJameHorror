@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 			_move_to_next_item()
 
 func _fuction_resource(i: DialogueFunction) -> void:
-	var target_node = get_node(i.traget_path)
+	var target_node = get_node(i.traget_path) 
 	if target_node.has_method(i.function_name):
 		if i.function_arg.size() == 0:
 			target_node.call(i.function_name)
@@ -110,6 +110,7 @@ func _choice_button_pressed(target_node: Node, WFSTC:String) -> void:
 	_move_to_next_item()
 
 func _text_resource(i: DialougeText) -> void:
+	AudioManager.play_sfx(i.audioStream, i.volume)
 	var camera: Camera2D = get_viewport().get_camera_2d()
 	if camera and i.camera_position != Vector2(999.999, 999.999):
 		var camera_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)

@@ -10,9 +10,6 @@ const DIALOGUE_SYSTEM = preload("res://scenes/dialogueSystem/dialogue_system.tsc
 
 @onready var interactable: Area2D = $interactable
 
-var _dialogue_top_pos: Vector2 = Vector2(20, 48)
-var _dialogue_bottom_pos: Vector2 = Vector2(20, 164)
-
 var _player_body_in: bool = false
 var _has_activated: bool = false
 var _disired_dialogue_pos : Vector2
@@ -30,19 +27,17 @@ func _process(delta: float) -> void:
 		return
 
 func _activate_dialoge() -> void:
-	print("interacted")
 	_player.can_move = false
-	
 	var Dialogue = DIALOGUE_SYSTEM.instantiate()
+	get_parent().add_child(Dialogue)
 	if override_dialogue_position:
 		_disired_dialogue_pos = override_position
 	else:
-	
-		_disired_dialogue_pos = _dialogue_bottom_pos
+		var dialouge_pos_marker = _player.find_child("DialoguePos")
+		_disired_dialogue_pos = dialouge_pos_marker.global_position
 	
 	Dialogue.global_position = _disired_dialogue_pos
 	Dialogue._dilogue = dialouge
-	get_viewport().get_camera_2d().add_child(Dialogue)
 
 func _on_interactable_interacted() -> void:
 	if !activate_instant and _player_body_in:

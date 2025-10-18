@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://csvwsbcynulct"]
+[gd_scene load_steps=19 format=4 uid="uid://csvwsbcynulct"]
 
 [ext_resource type="PackedScene" uid="uid://blhbhh3455tc3" path="res://scenes/Rooms/room_base.tscn" id="1_2mtq0"]
 [ext_resource type="PackedScene" uid="uid://b440u4pbfdpwr" path="res://scenes/player/player.tscn" id="1_scgta"]
@@ -9,11 +9,13 @@
 [ext_resource type="Script" uid="uid://beitjq1vre0u6" path="res://resource/dialouge/DialougeFunction.gd" id="7_y5yvr"]
 [ext_resource type="Script" uid="uid://dcoquvxvys1s" path="res://resource/dialouge/DialogueChoice.gd" id="8_2mtq0"]
 [ext_resource type="PackedScene" uid="uid://cbp3dtejadt1j" path="res://scenes/door/door.tscn" id="9_2mtq0"]
+[ext_resource type="PackedScene" uid="uid://c0qlbaekkstvu" path="res://scenes/interactables/knife.tscn" id="10_2xcnj"]
 
 [sub_resource type="Resource" id="Resource_y5yvr"]
 script = ExtResource("6_tlma1")
 text = "test"
 text_speed = 16.0
+volume = 0.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
@@ -22,6 +24,7 @@ metadata/_custom_type_script = "uid://5gbjv0l5by6o"
 script = ExtResource("6_tlma1")
 text = "yup this is a test"
 text_speed = 16.0
+volume = 0.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
@@ -37,6 +40,7 @@ metadata/_custom_type_script = "uid://dcoquvxvys1s"
 script = ExtResource("6_tlma1")
 text = "Tbh i dont really care if you think this is a test or not lol"
 text_speed = 16.0
+volume = 0.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
@@ -45,17 +49,31 @@ metadata/_custom_type_script = "uid://5gbjv0l5by6o"
 script = ExtResource("6_tlma1")
 text = "[shake] Anyways i am shaking!!!! [/shake]"
 text_speed = 16.0
+volume = 0.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
 
 [sub_resource type="Resource" id="Resource_u863x"]
 script = ExtResource("6_tlma1")
-text = "[rainbow] oh and this is rainbow [/ rainbow]"
+text = "[rainbow] oh and this is rainbow [/rainbow]"
 text_speed = 16.0
+volume = 0.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_e164y"]
+script = ExtResource("6_tlma1")
+text = "hi"
+text_speed = 1.0
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2xcnj"]
+radius = 33.8105
 
 [node name="RoomBase" instance=ExtResource("1_2mtq0")]
 
@@ -71,9 +89,28 @@ spawn_dir = "down"
 [node name="test" parent="." index="2" instance=ExtResource("3_aciaf")]
 position = Vector2(-292.899, -74.3073)
 
-[node name="DialogueMaker" parent="test" index="1" instance=ExtResource("4_cf6fw")]
+[node name="DialogueMaker2" parent="test" index="1" instance=ExtResource("4_cf6fw")]
+activate_instant = false
+only_activate_once = false
+override_dialogue_position = false
+override_position = Vector2(0, 0)
 dialouge = Array[ExtResource("5_4pyy6")]([SubResource("Resource_y5yvr"), SubResource("Resource_2xcnj"), SubResource("Resource_jsqw7"), SubResource("Resource_2mtq0"), SubResource("Resource_dwp8b"), SubResource("Resource_u863x")])
 
 [node name="Player" parent="." index="3" instance=ExtResource("1_scgta")]
 
-[editable path="test/DialogueMaker"]
+[node name="Knife" parent="." index="5" instance=ExtResource("10_2xcnj")]
+position = Vector2(215.3, 27.3716)
+
+[node name="DialogueMaker" parent="Knife" index="1" instance=ExtResource("4_cf6fw")]
+position = Vector2(-0.812424, -1.85094)
+activate_instant = false
+only_activate_once = false
+override_dialogue_position = false
+override_position = Vector2(0, 0)
+dialouge = Array[ExtResource("5_4pyy6")]([SubResource("Resource_e164y")])
+
+[node name="CollisionShape2D" parent="Knife/DialogueMaker/interactable" index="0"]
+shape = SubResource("CircleShape2D_2xcnj")
+
+[editable path="test/DialogueMaker2"]
+[editable path="Knife/DialogueMaker"]

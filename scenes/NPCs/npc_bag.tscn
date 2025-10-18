@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhxv67ry80ft6"]
+
+[ext_resource type="Texture2D" uid="uid://biea58gidb3n" path="res://assets/art/npc/Airbag.png" id="1_qxkwd"]
+[ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="2_igc0g"]
+[ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="3_nqgu4"]
+[ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="4_cmf3x"]
+[ext_resource type="AudioStream" uid="uid://jvssuuu2kiah" path="res://assets/SFX/IG_NPC_dial2_sfx.wav" id="4_igc0g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75adi"]
+size = Vector2(190, 168)
+
+[sub_resource type="Resource" id="Resource_qxkwd"]
+script = ExtResource("4_cmf3x")
+text = "[shake]Pain Pain Pain Pain[/shake]"
+text_speed = 20.0
+audioStream = ExtResource("4_igc0g")
+volume = -4.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[node name="NPCBag" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_qxkwd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_75adi")
+
+[node name="DialogueMaker" parent="." instance=ExtResource("2_igc0g")]
+dialouge = Array[ExtResource("3_nqgu4")]([SubResource("Resource_qxkwd")])

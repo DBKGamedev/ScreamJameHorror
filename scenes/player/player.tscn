@@ -275,3 +275,6 @@ tree_root = SubResource("AnimationNodeStateMachine_gx1jg")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, -0.0109891)
+
+[node name="DialoguePos" type="Marker2D" parent="."]
+position = Vector2(0, 133)

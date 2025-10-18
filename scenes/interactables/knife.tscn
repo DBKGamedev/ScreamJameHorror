@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0qlbaekkstvu"]
+
+[ext_resource type="Script" uid="uid://c666060yg2yco" path="res://scenes/interactables/knife.gd" id="1_7344w"]
+[ext_resource type="Texture2D" uid="uid://b3ubbfybexhes" path="res://icon.svg" id="1_tduhd"]
+[ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="3_o5yg6"]
+[ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="4_e0xtd"]
+[ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="5_7344w"]
+
+[sub_resource type="Resource" id="Resource_e164y"]
+script = ExtResource("5_7344w")
+text = "hi"
+text_speed = 1.0
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wo7qt"]
+radius = 33.8105
+
+[node name="Knife" type="Node2D"]
+script = ExtResource("1_7344w")
+
+[node name="KnifeSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_tduhd")
+
+[node name="DialogueMaker" parent="." instance=ExtResource("3_o5yg6")]
+position = Vector2(-0.812424, -1.85094)
+dialouge = Array[ExtResource("4_e0xtd")]([SubResource("Resource_e164y")])
+
+[node name="CollisionShape2D" parent="DialogueMaker/interactable" index="0"]
+shape = SubResource("CircleShape2D_wo7qt")
+
+[editable path="DialogueMaker"]
