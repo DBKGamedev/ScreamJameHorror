@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://csvwsbcynulct"]
+[gd_scene load_steps=18 format=4 uid="uid://csvwsbcynulct"]
 
 [ext_resource type="PackedScene" uid="uid://blhbhh3455tc3" path="res://scenes/Rooms/room_base.tscn" id="1_2mtq0"]
 [ext_resource type="PackedScene" uid="uid://b440u4pbfdpwr" path="res://scenes/player/player.tscn" id="1_scgta"]
@@ -63,15 +63,6 @@ camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
 
-[sub_resource type="Resource" id="Resource_e164y"]
-script = ExtResource("6_tlma1")
-text = "hi"
-text_speed = 1.0
-volume = 0.0
-camera_position = Vector2(999.999, 999.999)
-camera_transition_time = 1.0
-metadata/_custom_type_script = "uid://5gbjv0l5by6o"
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_2xcnj"]
 radius = 33.8105
 
@@ -90,10 +81,6 @@ spawn_dir = "down"
 position = Vector2(-292.899, -74.3073)
 
 [node name="DialogueMaker2" parent="test" index="1" instance=ExtResource("4_cf6fw")]
-activate_instant = false
-only_activate_once = false
-override_dialogue_position = false
-override_position = Vector2(0, 0)
 dialouge = Array[ExtResource("5_4pyy6")]([SubResource("Resource_y5yvr"), SubResource("Resource_2xcnj"), SubResource("Resource_jsqw7"), SubResource("Resource_2mtq0"), SubResource("Resource_dwp8b"), SubResource("Resource_u863x")])
 
 [node name="Player" parent="." index="3" instance=ExtResource("1_scgta")]
@@ -101,16 +88,9 @@ dialouge = Array[ExtResource("5_4pyy6")]([SubResource("Resource_y5yvr"), SubReso
 [node name="Knife" parent="." index="5" instance=ExtResource("10_2xcnj")]
 position = Vector2(215.3, 27.3716)
 
-[node name="DialogueMaker" parent="Knife" index="1" instance=ExtResource("4_cf6fw")]
-position = Vector2(-0.812424, -1.85094)
-activate_instant = false
-only_activate_once = false
-override_dialogue_position = false
-override_position = Vector2(0, 0)
-dialouge = Array[ExtResource("5_4pyy6")]([SubResource("Resource_e164y")])
-
 [node name="CollisionShape2D" parent="Knife/DialogueMaker/interactable" index="0"]
 shape = SubResource("CircleShape2D_2xcnj")
 
 [editable path="test/DialogueMaker2"]
+[editable path="Knife"]
 [editable path="Knife/DialogueMaker"]

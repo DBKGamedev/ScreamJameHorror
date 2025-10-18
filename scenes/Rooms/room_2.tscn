@@ -167,10 +167,6 @@ y_sort_enabled = false
 position = Vector2(836, -1531)
 
 [node name="DialogueMaker" parent="NPCCone2" index="2"]
-activate_instant = false
-only_activate_once = false
-override_dialogue_position = false
-override_position = Vector2(0, 0)
 dialouge = Array[ExtResource("6_abik5")]([SubResource("Resource_s0rdk"), SubResource("Resource_pn3j8"), SubResource("Resource_qlgwm")])
 
 [node name="NPCBag" parent="." index="6" instance=ExtResource("9_qlgwm")]
