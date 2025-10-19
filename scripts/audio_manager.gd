@@ -14,7 +14,6 @@ func play(audio_name: String, start_pos: float = 0.0) -> void:
 	current_music.play(start_pos)
 
 func play_sfx(audio_stream: AudioStream, volume_DB: float = 0.0, start_pos: float = 0.0) -> SFX:
-	print("stx")
 	var audio_one_shot: SFX = sfx_scene.instantiate()
 	audio_one_shot.stream = audio_stream
 	audio_one_shot.volume_db = volume_DB

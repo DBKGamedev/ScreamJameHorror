@@ -17,7 +17,7 @@ expand_margin_bottom = 10.0
 
 [node name="DialogueSystem" type="Node2D"]
 z_index = 4067
-scale = Vector2(2, 2)
+scale = Vector2(1.25, 1.25)
 script = ExtResource("1_2tva7")
 
 [node name="Panel" type="Panel" parent="."]

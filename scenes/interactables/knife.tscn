@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0qlbaekkstvu"]
+[gd_scene load_steps=13 format=3 uid="uid://c0qlbaekkstvu"]
 
 [ext_resource type="Script" uid="uid://c666060yg2yco" path="res://scenes/interactables/knife.gd" id="1_7344w"]
 [ext_resource type="Texture2D" uid="uid://d1civlry008fv" path="res://assets/art/props/Knife.png" id="2_7344w"]
 [ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="3_o5yg6"]
 [ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="4_e0xtd"]
 [ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="5_7344w"]
+[ext_resource type="AudioStream" uid="uid://dt0s0p5vna4wn" path="res://assets/SFX/IG_interract_sfx.wav" id="5_wo7qt"]
 [ext_resource type="Script" uid="uid://beitjq1vre0u6" path="res://resource/dialouge/DialougeFunction.gd" id="6_7344w"]
 [ext_resource type="Script" uid="uid://dcoquvxvys1s" path="res://resource/dialouge/DialogueChoice.gd" id="7_wo7qt"]
 
@@ -12,7 +13,8 @@
 script = ExtResource("5_7344w")
 text = "A shiny knife lies on the ground."
 text_speed = 30.0
-volume = 0.0
+audioStream = ExtResource("5_wo7qt")
+volume = -8.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"

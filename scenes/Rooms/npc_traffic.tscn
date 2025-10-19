@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4nf0q4j74sad"]
+
+[ext_resource type="Texture2D" uid="uid://dv7dprnl00h1m" path="res://assets/art/npc/Traffic Lights.png" id="1_jpx1w"]
+[ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="2_nyghi"]
+[ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="3_vbug4"]
+[ext_resource type="AudioStream" uid="uid://dfxtirx2qyebq" path="res://assets/SFX/IG_NPC_dial3_sfx.wav" id="4_31th6"]
+[ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="5_6fmoo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jpx1w"]
+radius = 30.0
+height = 130.0
+
+[sub_resource type="Resource" id="Resource_dig87"]
+script = ExtResource("5_6fmoo")
+text = "[shake][wave][rainbow]How long has it been [b]dreamer[/b]?[/rainbow][/wave][/shake]"
+text_speed = 16.0
+audioStream = ExtResource("4_31th6")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_nyghi"]
+script = ExtResource("5_6fmoo")
+text = "[shake][wave][rainbow]Over and over again the same things repeat. the same [b]dream[/b], the same [b]end[/b], the same [b]loss[/b].[/rainbow][/wave][/shake]"
+text_speed = 16.0
+audioStream = ExtResource("4_31th6")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_vbug4"]
+script = ExtResource("5_6fmoo")
+text = "[shake][wave][rainbow]When will you learn to let go? how long will you keep repeating the cycle [b]dreamer[/b]?[/rainbow][/wave][/shake]"
+text_speed = 16.0
+audioStream = ExtResource("4_31th6")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[node name="NPCTraffic" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -51)
+scale = Vector2(2, 2)
+texture = ExtResource("1_jpx1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jpx1w")
+
+[node name="DialogueMaker" parent="." instance=ExtResource("2_nyghi")]
+position = Vector2(0, -51)
+dialouge = Array[ExtResource("3_vbug4")]([SubResource("Resource_dig87"), SubResource("Resource_nyghi"), SubResource("Resource_vbug4")])

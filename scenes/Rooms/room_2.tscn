@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bnay5aafluhlt"]
+[gd_scene load_steps=28 format=4 uid="uid://bnay5aafluhlt"]
 
 [ext_resource type="PackedScene" uid="uid://blhbhh3455tc3" path="res://scenes/Rooms/room_base.tscn" id="1_pfq81"]
 [ext_resource type="PackedScene" uid="uid://cbp3dtejadt1j" path="res://scenes/door/door.tscn" id="2_77yun"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://c1fxk0v51pm1" path="res://scenes/props/person.tscn" id="9_vimkw"]
 [ext_resource type="PackedScene" uid="uid://dg317ksyxh0w0" path="res://scenes/props/box.tscn" id="10_qltbs"]
 [ext_resource type="AudioStream" uid="uid://c3n3e8ix2rni5" path="res://assets/SFX/IG_NPC_dial1_sfx.wav" id="10_rwa2d"]
-[ext_resource type="Texture2D" uid="uid://wtj4e75rre64" path="res://assets/art/props/Props_scene.png" id="11_rwa2d"]
 [ext_resource type="AudioStream" uid="uid://dt0s0p5vna4wn" path="res://assets/SFX/IG_interract_sfx.wav" id="12_8s3ml"]
 [ext_resource type="PackedScene" uid="uid://c0qlbaekkstvu" path="res://scenes/interactables/knife.tscn" id="15_8gcm7"]
 
@@ -24,7 +23,7 @@ script = ExtResource("7_rwa2d")
 text = "You look into the box."
 text_speed = 30.0
 audioStream = ExtResource("12_8s3ml")
-volume = 0.0
+volume = -8.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
@@ -136,21 +135,22 @@ metadata/_edit_lock_ = true
 [node name="spawn" parent="Door/Door_b" index="2"]
 position = Vector2(0, -44)
 
-[node name="Door_b2" parent="Door" index="1" instance=ExtResource("2_77yun")]
+[node name="Door_c" parent="Door" index="1" instance=ExtResource("2_77yun")]
 position = Vector2(2616, -2191)
-destination_scene_tag = "room_1"
-destination_door_tag = "a"
+destination_scene_tag = "room_3"
+destination_door_tag = "d"
+spawn_dir = "down"
 
-[node name="DoorSprite" parent="Door/Door_b2" index="0"]
+[node name="DoorSprite" parent="Door/Door_c" index="0"]
 metadata/_edit_lock_ = true
 
-[node name="interactable" parent="Door/Door_b2" index="1"]
+[node name="interactable" parent="Door/Door_c" index="1"]
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" parent="Door/Door_b2/interactable" index="0"]
+[node name="CollisionShape2D" parent="Door/Door_c/interactable" index="0"]
 metadata/_edit_lock_ = true
 
-[node name="spawn" parent="Door/Door_b2" index="2"]
+[node name="spawn" parent="Door/Door_c" index="2"]
 position = Vector2(1, 43)
 
 [node name="Props" parent="." index="2"]
@@ -163,7 +163,7 @@ texture = ExtResource("9_pn3j8")
 
 [node name="PropsSplashred2" type="Sprite2D" parent="Props" index="1"]
 z_index = -1
-position = Vector2(2075, 998)
+position = Vector2(2075, 979)
 texture = ExtResource("9_pn3j8")
 
 [node name="PropsSplashred3" type="Sprite2D" parent="Props" index="2"]
@@ -216,311 +216,441 @@ z_index = -1
 position = Vector2(2978.71, -1811.96)
 texture = ExtResource("9_pn3j8")
 
-[node name="PropsScene" type="Sprite2D" parent="Props" index="12"]
-z_index = -1
-position = Vector2(648, -881)
-texture = ExtResource("11_rwa2d")
-
-[node name="Tree" parent="Props" index="13" instance=ExtResource("7_1bysi")]
+[node name="Tree" parent="Props" index="12" instance=ExtResource("7_1bysi")]
 position = Vector2(755, 509)
 scale = Vector2(-1, 1)
 
-[node name="Tree13" parent="Props" index="14" instance=ExtResource("7_1bysi")]
+[node name="Tree52" parent="Props" index="13" instance=ExtResource("7_1bysi")]
+position = Vector2(268.645, 421.228)
+scale = Vector2(-1, 1)
+
+[node name="Tree53" parent="Props" index="14" instance=ExtResource("7_1bysi")]
+position = Vector2(886.602, 262.423)
+scale = Vector2(-1, 1)
+
+[node name="Tree54" parent="Props" index="15" instance=ExtResource("7_1bysi")]
+position = Vector2(1325.04, 555.866)
+scale = Vector2(-1, 1)
+
+[node name="Tree55" parent="Props" index="16" instance=ExtResource("7_1bysi")]
+position = Vector2(2513, 988)
+scale = Vector2(-1, 1)
+
+[node name="Tree57" parent="Props" index="17" instance=ExtResource("7_1bysi")]
+position = Vector2(2965.77, 566.887)
+scale = Vector2(-1, 1)
+
+[node name="Tree58" parent="Props" index="18" instance=ExtResource("7_1bysi")]
+position = Vector2(3486.38, -49.7583)
+scale = Vector2(-1, 1)
+
+[node name="Tree59" parent="Props" index="19" instance=ExtResource("7_1bysi")]
+position = Vector2(2202.55, -368.19)
+scale = Vector2(-1, 1)
+
+[node name="Tree60" parent="Props" index="20" instance=ExtResource("7_1bysi")]
+position = Vector2(1393.83, -413.68)
+scale = Vector2(-1, 1)
+
+[node name="Tree61" parent="Props" index="21" instance=ExtResource("7_1bysi")]
+position = Vector2(1713.23, -1869.67)
+scale = Vector2(-1, 1)
+
+[node name="Tree62" parent="Props" index="22" instance=ExtResource("7_1bysi")]
+position = Vector2(1370.13, -1943.67)
+scale = Vector2(-1, 1)
+
+[node name="Tree63" parent="Props" index="23" instance=ExtResource("7_1bysi")]
+position = Vector2(3442.2, -1977.31)
+scale = Vector2(-1, 1)
+
+[node name="Tree64" parent="Props" index="24" instance=ExtResource("7_1bysi")]
+position = Vector2(2607.99, -1149.83)
+scale = Vector2(-1, 1)
+
+[node name="Tree56" parent="Props" index="25" instance=ExtResource("7_1bysi")]
+position = Vector2(3425.73, 496.125)
+scale = Vector2(-1, 1)
+
+[node name="Tree13" parent="Props" index="26" instance=ExtResource("7_1bysi")]
 position = Vector2(-14.6499, 542.993)
 
-[node name="Tree14" parent="Props" index="15" instance=ExtResource("7_1bysi")]
+[node name="Tree14" parent="Props" index="27" instance=ExtResource("7_1bysi")]
 position = Vector2(499.739, 263.358)
 
-[node name="Tree15" parent="Props" index="16" instance=ExtResource("7_1bysi")]
+[node name="Tree65" parent="Props" index="28" instance=ExtResource("7_1bysi")]
+position = Vector2(455, -5)
+
+[node name="Tree81" parent="Props" index="29" instance=ExtResource("7_1bysi")]
+position = Vector2(-218, 187)
+
+[node name="Tree82" parent="Props" index="30" instance=ExtResource("7_1bysi")]
+position = Vector2(201.047, 576.173)
+
+[node name="Tree66" parent="Props" index="31" instance=ExtResource("7_1bysi")]
+position = Vector2(689.165, 55.7574)
+
+[node name="Tree67" parent="Props" index="32" instance=ExtResource("7_1bysi")]
+position = Vector2(-205.296, -20.2425)
+
+[node name="Tree68" parent="Props" index="33" instance=ExtResource("7_1bysi")]
+position = Vector2(1450.83, -775.752)
+
+[node name="Tree69" parent="Props" index="34" instance=ExtResource("7_1bysi")]
+position = Vector2(1974, -1085)
+
+[node name="Tree70" parent="Props" index="35" instance=ExtResource("7_1bysi")]
+position = Vector2(2351.84, -1107.24)
+
+[node name="Tree71" parent="Props" index="36" instance=ExtResource("7_1bysi")]
+position = Vector2(3039.35, -1890.14)
+
+[node name="Tree72" parent="Props" index="37" instance=ExtResource("7_1bysi")]
+position = Vector2(1716.68, 616.099)
+
+[node name="Tree15" parent="Props" index="38" instance=ExtResource("7_1bysi")]
 position = Vector2(1369.71, 953.813)
 scale = Vector2(-1, 1)
 
-[node name="Tree16" parent="Props" index="17" instance=ExtResource("7_1bysi")]
+[node name="Tree73" parent="Props" index="39" instance=ExtResource("7_1bysi")]
+position = Vector2(2112.98, 907.345)
+scale = Vector2(-1, 1)
+
+[node name="Tree74" parent="Props" index="40" instance=ExtResource("7_1bysi")]
+position = Vector2(1710.45, 1002.28)
+scale = Vector2(-1, 1)
+
+[node name="Tree75" parent="Props" index="41" instance=ExtResource("7_1bysi")]
+position = Vector2(2181.34, -0.257813)
+scale = Vector2(-1, 1)
+
+[node name="Tree76" parent="Props" index="42" instance=ExtResource("7_1bysi")]
+position = Vector2(2667.42, -61.0178)
+scale = Vector2(-1, 1)
+
+[node name="Tree77" parent="Props" index="43" instance=ExtResource("7_1bysi")]
+position = Vector2(497.032, 471.771)
+scale = Vector2(-1, 1)
+
+[node name="Tree78" parent="Props" index="44" instance=ExtResource("7_1bysi")]
+position = Vector2(1021, 624)
+scale = Vector2(-1, 1)
+
+[node name="Tree79" parent="Props" index="45" instance=ExtResource("7_1bysi")]
+position = Vector2(-267.574, 551.023)
+scale = Vector2(-1, 1)
+
+[node name="Tree80" parent="Props" index="46" instance=ExtResource("7_1bysi")]
+position = Vector2(190, -7)
+scale = Vector2(-1, 1)
+
+[node name="Tree16" parent="Props" index="47" instance=ExtResource("7_1bysi")]
 position = Vector2(1970.41, 463.59)
 
-[node name="Tree17" parent="Props" index="18" instance=ExtResource("7_1bysi")]
+[node name="Tree17" parent="Props" index="48" instance=ExtResource("7_1bysi")]
 position = Vector2(2408.85, 404.902)
 scale = Vector2(-1, 1)
 
-[node name="Tree18" parent="Props" index="19" instance=ExtResource("7_1bysi")]
+[node name="Tree18" parent="Props" index="49" instance=ExtResource("7_1bysi")]
 position = Vector2(1891, -26.6324)
 scale = Vector2(-1, 1)
 
-[node name="Tree19" parent="Props" index="20" instance=ExtResource("7_1bysi")]
+[node name="Tree19" parent="Props" index="50" instance=ExtResource("7_1bysi")]
 position = Vector2(2837.01, 934.74)
 
-[node name="Tree20" parent="Props" index="21" instance=ExtResource("7_1bysi")]
+[node name="Tree20" parent="Props" index="51" instance=ExtResource("7_1bysi")]
 position = Vector2(3161.15, 421.003)
 
-[node name="Tree21" parent="Props" index="22" instance=ExtResource("7_1bysi")]
+[node name="Tree21" parent="Props" index="52" instance=ExtResource("7_1bysi")]
 position = Vector2(3460.83, -380.181)
 
-[node name="Tree22" parent="Props" index="23" instance=ExtResource("7_1bysi")]
+[node name="Tree22" parent="Props" index="53" instance=ExtResource("7_1bysi")]
 position = Vector2(1619.94, -508.615)
 scale = Vector2(-1, 1)
 
-[node name="Tree23" parent="Props" index="24" instance=ExtResource("7_1bysi")]
+[node name="Tree23" parent="Props" index="54" instance=ExtResource("7_1bysi")]
 position = Vector2(2384.43, -789.947)
 
-[node name="Tree24" parent="Props" index="25" instance=ExtResource("7_1bysi")]
+[node name="Tree24" parent="Props" index="55" instance=ExtResource("7_1bysi")]
 position = Vector2(2971.56, -416.877)
 scale = Vector2(-1, 1)
 
-[node name="Tree25" parent="Props" index="26" instance=ExtResource("7_1bysi")]
+[node name="Tree25" parent="Props" index="56" instance=ExtResource("7_1bysi")]
 position = Vector2(3509.76, -942.845)
 
-[node name="Tree26" parent="Props" index="27" instance=ExtResource("7_1bysi")]
+[node name="Tree26" parent="Props" index="57" instance=ExtResource("7_1bysi")]
 position = Vector2(2910.38, -925.258)
 scale = Vector2(-1, 1)
 
-[node name="Tree27" parent="Props" index="28" instance=ExtResource("7_1bysi")]
+[node name="Tree27" parent="Props" index="58" instance=ExtResource("7_1bysi")]
 position = Vector2(3206.96, -1021.33)
 
-[node name="Tree28" parent="Props" index="29" instance=ExtResource("7_1bysi")]
+[node name="Tree28" parent="Props" index="59" instance=ExtResource("7_1bysi")]
 position = Vector2(2981.39, -1301.21)
 
-[node name="Tree29" parent="Props" index="30" instance=ExtResource("7_1bysi")]
+[node name="Tree29" parent="Props" index="60" instance=ExtResource("7_1bysi")]
 position = Vector2(3474.3, -1334.63)
 
-[node name="Tree30" parent="Props" index="31" instance=ExtResource("7_1bysi")]
+[node name="Tree30" parent="Props" index="61" instance=ExtResource("7_1bysi")]
 position = Vector2(3294.68, -1627.04)
 scale = Vector2(-1, 1)
 
-[node name="Tree31" parent="Props" index="32" instance=ExtResource("7_1bysi")]
+[node name="Tree31" parent="Props" index="62" instance=ExtResource("7_1bysi")]
 position = Vector2(1916.19, -1489.19)
 
-[node name="Tree32" parent="Props" index="33" instance=ExtResource("7_1bysi")]
+[node name="Tree32" parent="Props" index="63" instance=ExtResource("7_1bysi")]
 position = Vector2(2480.12, -1585.26)
 scale = Vector2(-1, 1)
 
-[node name="Tree33" parent="Props" index="34" instance=ExtResource("7_1bysi")]
+[node name="Tree33" parent="Props" index="64" instance=ExtResource("7_1bysi")]
 position = Vector2(2074.93, -1865.14)
 scale = Vector2(-1, 1)
 
-[node name="Tree34" parent="Props" index="35" instance=ExtResource("7_1bysi")]
+[node name="Tree34" parent="Props" index="65" instance=ExtResource("7_1bysi")]
 position = Vector2(1435.81, -1618.68)
 
-[node name="Tree35" parent="Props" index="36" instance=ExtResource("7_1bysi")]
+[node name="Tree35" parent="Props" index="66" instance=ExtResource("7_1bysi")]
 position = Vector2(1406.57, -987.916)
 
-[node name="Tree36" parent="Props" index="37" instance=ExtResource("7_1bysi")]
+[node name="Tree36" parent="Props" index="67" instance=ExtResource("7_1bysi")]
 position = Vector2(2166.83, -1255.26)
 
-[node name="Tree37" parent="Props" index="38" instance=ExtResource("7_1bysi")]
+[node name="Tree37" parent="Props" index="68" instance=ExtResource("7_1bysi")]
 position = Vector2(2488.47, -520.064)
 scale = Vector2(-1, 1)
 
-[node name="Tree2" parent="Props" index="39" instance=ExtResource("7_1bysi")]
+[node name="Tree2" parent="Props" index="69" instance=ExtResource("7_1bysi")]
 position = Vector2(1533.81, 403.05)
 
-[node name="Tree3" parent="Props" index="40" instance=ExtResource("7_1bysi")]
+[node name="Tree3" parent="Props" index="70" instance=ExtResource("7_1bysi")]
 position = Vector2(116.899, 201.553)
 scale = Vector2(-1, 1)
 
-[node name="Tree4" parent="Props" index="41" instance=ExtResource("7_1bysi")]
+[node name="Tree4" parent="Props" index="71" instance=ExtResource("7_1bysi")]
 position = Vector2(940, 54)
 scale = Vector2(-1, 1)
 
-[node name="Tree5" parent="Props" index="42" instance=ExtResource("7_1bysi")]
+[node name="Tree5" parent="Props" index="72" instance=ExtResource("7_1bysi")]
 position = Vector2(2364.68, 785.343)
 
-[node name="Tree6" parent="Props" index="43" instance=ExtResource("7_1bysi")]
+[node name="Tree6" parent="Props" index="73" instance=ExtResource("7_1bysi")]
 position = Vector2(2786.58, 288.25)
 
-[node name="Tree7" parent="Props" index="44" instance=ExtResource("7_1bysi")]
+[node name="Tree7" parent="Props" index="74" instance=ExtResource("7_1bysi")]
 position = Vector2(3471.65, 919.015)
 scale = Vector2(-1, 1)
 
-[node name="Tree8" parent="Props" index="45" instance=ExtResource("7_1bysi")]
+[node name="Tree8" parent="Props" index="75" instance=ExtResource("7_1bysi")]
 position = Vector2(439.737, -543.719)
 
-[node name="Tree9" parent="Props" index="46" instance=ExtResource("7_1bysi")]
+[node name="Tree9" parent="Props" index="76" instance=ExtResource("7_1bysi")]
 position = Vector2(-64.8262, -1169.38)
 scale = Vector2(-1, 1)
 
-[node name="Tree49" parent="Props" index="47" instance=ExtResource("7_1bysi")]
+[node name="Tree49" parent="Props" index="77" instance=ExtResource("7_1bysi")]
 position = Vector2(-275.859, -1333.15)
 scale = Vector2(-1, 1)
 
-[node name="Tree50" parent="Props" index="48" instance=ExtResource("7_1bysi")]
+[node name="Tree50" parent="Props" index="78" instance=ExtResource("7_1bysi")]
 position = Vector2(-222.505, -981.65)
 scale = Vector2(-1, 1)
 
-[node name="Tree51" parent="Props" index="49" instance=ExtResource("7_1bysi")]
+[node name="Tree51" parent="Props" index="79" instance=ExtResource("7_1bysi")]
 position = Vector2(-127, -1510)
 scale = Vector2(-1, 1)
 
-[node name="Tree38" parent="Props" index="50" instance=ExtResource("7_1bysi")]
+[node name="Tree38" parent="Props" index="80" instance=ExtResource("7_1bysi")]
 position = Vector2(-429, -554)
 scale = Vector2(-1, 1)
 
-[node name="Tree39" parent="Props" index="51" instance=ExtResource("7_1bysi")]
+[node name="Tree39" parent="Props" index="81" instance=ExtResource("7_1bysi")]
 position = Vector2(-174.462, -393.157)
 scale = Vector2(-1, 1)
 
-[node name="Tree40" parent="Props" index="52" instance=ExtResource("7_1bysi")]
+[node name="Tree40" parent="Props" index="82" instance=ExtResource("7_1bysi")]
 position = Vector2(-54, -541)
 
-[node name="Tree10" parent="Props" index="53" instance=ExtResource("7_1bysi")]
+[node name="Tree10" parent="Props" index="83" instance=ExtResource("7_1bysi")]
 position = Vector2(647.777, -1343.72)
 
-[node name="Tree41" parent="Props" index="54" instance=ExtResource("7_1bysi")]
+[node name="Tree41" parent="Props" index="84" instance=ExtResource("7_1bysi")]
 position = Vector2(937, -1172)
 
-[node name="Tree42" parent="Props" index="55" instance=ExtResource("7_1bysi")]
+[node name="Tree42" parent="Props" index="85" instance=ExtResource("7_1bysi")]
 position = Vector2(951.577, -1647.52)
 
-[node name="Tree43" parent="Props" index="56" instance=ExtResource("7_1bysi")]
-position = Vector2(761, -950)
+[node name="Tree43" parent="Props" index="86" instance=ExtResource("7_1bysi")]
+position = Vector2(888, -864)
 
-[node name="Tree44" parent="Props" index="57" instance=ExtResource("7_1bysi")]
-position = Vector2(575.279, -1112.42)
+[node name="Tree44" parent="Props" index="87" instance=ExtResource("7_1bysi")]
+position = Vector2(664, -1055)
 
-[node name="Tree45" parent="Props" index="58" instance=ExtResource("7_1bysi")]
+[node name="Tree45" parent="Props" index="88" instance=ExtResource("7_1bysi")]
 position = Vector2(582.184, -408.159)
 
-[node name="Tree46" parent="Props" index="59" instance=ExtResource("7_1bysi")]
+[node name="Tree46" parent="Props" index="89" instance=ExtResource("7_1bysi")]
 position = Vector2(102.286, -2041.49)
 
-[node name="Tree47" parent="Props" index="60" instance=ExtResource("7_1bysi")]
+[node name="Tree47" parent="Props" index="90" instance=ExtResource("7_1bysi")]
 position = Vector2(458.106, -1854.99)
 
-[node name="Tree48" parent="Props" index="61" instance=ExtResource("7_1bysi")]
+[node name="Tree48" parent="Props" index="91" instance=ExtResource("7_1bysi")]
 position = Vector2(901.4, -2074.28)
 
-[node name="Tree11" parent="Props" index="62" instance=ExtResource("7_1bysi")]
+[node name="Tree11" parent="Props" index="92" instance=ExtResource("7_1bysi")]
 position = Vector2(136.999, -1640.3)
 
-[node name="Tree12" parent="Props" index="63" instance=ExtResource("7_1bysi")]
+[node name="Tree12" parent="Props" index="93" instance=ExtResource("7_1bysi")]
 position = Vector2(695.382, -1882.49)
 scale = Vector2(-1, 1)
 
-[node name="Thorn" parent="Props" index="64" instance=ExtResource("8_n6bn1")]
+[node name="Thorn" parent="Props" index="94" instance=ExtResource("8_n6bn1")]
 position = Vector2(385.732, -986.312)
 
-[node name="Thorn2" parent="Props" index="65" instance=ExtResource("8_n6bn1")]
+[node name="Thorn2" parent="Props" index="95" instance=ExtResource("8_n6bn1")]
 position = Vector2(32, -314)
 
-[node name="Thorn3" parent="Props" index="66" instance=ExtResource("8_n6bn1")]
+[node name="Thorn3" parent="Props" index="96" instance=ExtResource("8_n6bn1")]
 position = Vector2(316.687, -1390.23)
 
-[node name="Thorn4" parent="Props" index="67" instance=ExtResource("8_n6bn1")]
+[node name="Thorn4" parent="Props" index="97" instance=ExtResource("8_n6bn1")]
 position = Vector2(105, -1456)
 
-[node name="Thorn28" parent="Props" index="68" instance=ExtResource("8_n6bn1")]
+[node name="Thorn28" parent="Props" index="98" instance=ExtResource("8_n6bn1")]
 position = Vector2(53, -1566)
 
-[node name="Thorn29" parent="Props" index="69" instance=ExtResource("8_n6bn1")]
+[node name="Thorn29" parent="Props" index="99" instance=ExtResource("8_n6bn1")]
 position = Vector2(-17, -1683)
 
-[node name="Thorn30" parent="Props" index="70" instance=ExtResource("8_n6bn1")]
+[node name="Thorn30" parent="Props" index="100" instance=ExtResource("8_n6bn1")]
 position = Vector2(-104, -1780)
 
-[node name="Thorn5" parent="Props" index="71" instance=ExtResource("8_n6bn1")]
+[node name="Thorn5" parent="Props" index="101" instance=ExtResource("8_n6bn1")]
 position = Vector2(245, -1918)
 
-[node name="Thorn6" parent="Props" index="72" instance=ExtResource("8_n6bn1")]
+[node name="Thorn6" parent="Props" index="102" instance=ExtResource("8_n6bn1")]
 position = Vector2(-163, -1894)
 
-[node name="Thorn31" parent="Props" index="73" instance=ExtResource("8_n6bn1")]
+[node name="Thorn31" parent="Props" index="103" instance=ExtResource("8_n6bn1")]
 position = Vector2(-142.956, -2022.01)
 
-[node name="Thorn32" parent="Props" index="74" instance=ExtResource("8_n6bn1")]
+[node name="Thorn32" parent="Props" index="104" instance=ExtResource("8_n6bn1")]
 position = Vector2(-221, -2126)
 
-[node name="Thorn7" parent="Props" index="75" instance=ExtResource("8_n6bn1")]
+[node name="Thorn7" parent="Props" index="105" instance=ExtResource("8_n6bn1")]
 position = Vector2(534.18, -1652.6)
 
-[node name="Thorn8" parent="Props" index="76" instance=ExtResource("8_n6bn1")]
+[node name="Thorn8" parent="Props" index="106" instance=ExtResource("8_n6bn1")]
 position = Vector2(100, -442)
 
-[node name="Thorn17" parent="Props" index="77" instance=ExtResource("8_n6bn1")]
+[node name="Thorn17" parent="Props" index="107" instance=ExtResource("8_n6bn1")]
 position = Vector2(132, -557)
 
-[node name="Thorn18" parent="Props" index="78" instance=ExtResource("8_n6bn1")]
+[node name="Thorn18" parent="Props" index="108" instance=ExtResource("8_n6bn1")]
 position = Vector2(139, -680)
 
-[node name="Thorn19" parent="Props" index="79" instance=ExtResource("8_n6bn1")]
+[node name="Thorn19" parent="Props" index="109" instance=ExtResource("8_n6bn1")]
 position = Vector2(129, -797)
 
-[node name="Thorn20" parent="Props" index="80" instance=ExtResource("8_n6bn1")]
+[node name="Thorn20" parent="Props" index="110" instance=ExtResource("8_n6bn1")]
 position = Vector2(135, -917)
 
-[node name="Thorn21" parent="Props" index="81" instance=ExtResource("8_n6bn1")]
+[node name="Thorn21" parent="Props" index="111" instance=ExtResource("8_n6bn1")]
 position = Vector2(116, -1053)
 
-[node name="Thorn22" parent="Props" index="82" instance=ExtResource("8_n6bn1")]
+[node name="Thorn22" parent="Props" index="112" instance=ExtResource("8_n6bn1")]
 position = Vector2(84, -1189)
 
-[node name="Thorn23" parent="Props" index="83" instance=ExtResource("8_n6bn1")]
+[node name="Thorn23" parent="Props" index="113" instance=ExtResource("8_n6bn1")]
 position = Vector2(105, -1324)
 
-[node name="Thorn9" parent="Props" index="84" instance=ExtResource("8_n6bn1")]
+[node name="Thorn9" parent="Props" index="114" instance=ExtResource("8_n6bn1")]
 position = Vector2(889.764, -427.042)
 
-[node name="Thorn10" parent="Props" index="85" instance=ExtResource("8_n6bn1")]
-position = Vector2(857.685, -742.05)
+[node name="Thorn10" parent="Props" index="115" instance=ExtResource("8_n6bn1")]
+position = Vector2(697, -729)
 
-[node name="Thorn11" parent="Props" index="86" instance=ExtResource("8_n6bn1")]
+[node name="Thorn11" parent="Props" index="116" instance=ExtResource("8_n6bn1")]
 position = Vector2(2030.41, -913.154)
 
-[node name="Thorn12" parent="Props" index="87" instance=ExtResource("8_n6bn1")]
+[node name="Thorn33" parent="Props" index="117" instance=ExtResource("8_n6bn1")]
+position = Vector2(2171.76, -1622.64)
+
+[node name="Thorn34" parent="Props" index="118" instance=ExtResource("8_n6bn1")]
+position = Vector2(3478.1, -1736.56)
+
+[node name="Thorn35" parent="Props" index="119" instance=ExtResource("8_n6bn1")]
+position = Vector2(3470.51, -718.832)
+
+[node name="Thorn36" parent="Props" index="120" instance=ExtResource("8_n6bn1")]
+position = Vector2(3212.28, -411.235)
+
+[node name="Thorn37" parent="Props" index="121" instance=ExtResource("8_n6bn1")]
+position = Vector2(2713.09, -515.032)
+
+[node name="Thorn12" parent="Props" index="122" instance=ExtResource("8_n6bn1")]
 position = Vector2(2390, -2121)
 
-[node name="Thorn13" parent="Props" index="88" instance=ExtResource("8_n6bn1")]
+[node name="Thorn13" parent="Props" index="123" instance=ExtResource("8_n6bn1")]
 position = Vector2(2494, -2046)
 
-[node name="Thorn14" parent="Props" index="89" instance=ExtResource("8_n6bn1")]
+[node name="Thorn14" parent="Props" index="124" instance=ExtResource("8_n6bn1")]
 position = Vector2(2620, -2001)
 
-[node name="Thorn15" parent="Props" index="90" instance=ExtResource("8_n6bn1")]
+[node name="Thorn15" parent="Props" index="125" instance=ExtResource("8_n6bn1")]
 position = Vector2(2744, -2043)
 
-[node name="Thorn24" parent="Props" index="91" instance=ExtResource("8_n6bn1")]
+[node name="Thorn24" parent="Props" index="126" instance=ExtResource("8_n6bn1")]
 position = Vector2(-663, -432)
 
-[node name="Thorn25" parent="Props" index="92" instance=ExtResource("8_n6bn1")]
+[node name="Thorn25" parent="Props" index="127" instance=ExtResource("8_n6bn1")]
 position = Vector2(-166, -774)
 
-[node name="Thorn26" parent="Props" index="93" instance=ExtResource("8_n6bn1")]
+[node name="Thorn26" parent="Props" index="128" instance=ExtResource("8_n6bn1")]
 position = Vector2(-588.682, -834.088)
 
-[node name="Thorn27" parent="Props" index="94" instance=ExtResource("8_n6bn1")]
+[node name="Thorn27" parent="Props" index="129" instance=ExtResource("8_n6bn1")]
 position = Vector2(-363, -352)
 
-[node name="Thorn16" parent="Props" index="95" instance=ExtResource("8_n6bn1")]
+[node name="Thorn16" parent="Props" index="130" instance=ExtResource("8_n6bn1")]
 position = Vector2(2803, -2131)
 
-[node name="PropsStopsign" parent="Props" index="96" instance=ExtResource("8_8gcm7")]
+[node name="PropsStopsign" parent="Props" index="131" instance=ExtResource("8_8gcm7")]
 z_index = 0
-position = Vector2(-770, -661)
+position = Vector2(-758, -654)
 
-[node name="Person" parent="Props" index="97" instance=ExtResource("9_vimkw")]
+[node name="Person" parent="Props" index="132" instance=ExtResource("9_vimkw")]
 position = Vector2(2028, 693)
 
-[node name="Person2" parent="Props" index="98" instance=ExtResource("9_vimkw")]
+[node name="Person2" parent="Props" index="133" instance=ExtResource("9_vimkw")]
 position = Vector2(3229.69, 626.225)
 
-[node name="Person3" parent="Props" index="99" instance=ExtResource("9_vimkw")]
+[node name="Person3" parent="Props" index="134" instance=ExtResource("9_vimkw")]
 position = Vector2(3110.22, -26.2616)
 
-[node name="Person4" parent="Props" index="100" instance=ExtResource("9_vimkw")]
+[node name="Person4" parent="Props" index="135" instance=ExtResource("9_vimkw")]
 position = Vector2(1938.5, -458.189)
 
-[node name="Person6" parent="Props" index="101" instance=ExtResource("9_vimkw")]
+[node name="Person6" parent="Props" index="136" instance=ExtResource("9_vimkw")]
 position = Vector2(2862.09, -1560.98)
 
-[node name="box" parent="Props" index="102" instance=ExtResource("10_qltbs")]
+[node name="box" parent="Props" index="137" instance=ExtResource("10_qltbs")]
 position = Vector2(2287.94, 535.814)
 
 [node name="DialogueMaker" parent="Props/box" index="2"]
 dialouge = Array[ExtResource("6_abik5")]([SubResource("Resource_8ldrd"), SubResource("Resource_qltbs")])
 
-[node name="box2" parent="Props" index="103" instance=ExtResource("10_qltbs")]
+[node name="box2" parent="Props" index="138" instance=ExtResource("10_qltbs")]
 position = Vector2(1603.43, 814.482)
 
 [node name="DialogueMaker" parent="Props/box2" index="2"]
 dialouge = Array[ExtResource("6_abik5")]([SubResource("Resource_8ldrd"), SubResource("Resource_8s3ml")])
+
+[node name="Person5" parent="Props" index="139" instance=ExtResource("9_vimkw")]
+position = Vector2(1606, -1365)
+
+[node name="Person7" parent="Props" index="140" instance=ExtResource("9_vimkw")]
+position = Vector2(2703, -773)
 
 [node name="box3" parent="." index="3" instance=ExtResource("10_qltbs")]
 position = Vector2(3098.32, 878.349)
@@ -568,7 +698,7 @@ position = Vector2(572, 560)
 texture = ExtResource("9_pn3j8")
 
 [editable path="Door/Door_b"]
-[editable path="Door/Door_b2"]
+[editable path="Door/Door_c"]
 [editable path="Props/box"]
 [editable path="Props/box/DialogueMaker"]
 [editable path="Props/box2"]

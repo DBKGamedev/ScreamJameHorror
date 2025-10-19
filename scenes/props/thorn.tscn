@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cipokhg7yepr5"]
+[gd_scene load_steps=15 format=3 uid="uid://cipokhg7yepr5"]
 
 [ext_resource type="Texture2D" uid="uid://40g8kh2wv6r1" path="res://assets/art/props/Thorn White.png" id="1_1gb1c"]
 [ext_resource type="Script" uid="uid://bfc88xskeeg7y" path="res://scenes/props/thorn.gd" id="1_mt5km"]
 [ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="2_dm4rx"]
 [ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="3_67wyn"]
 [ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="4_3dr5k"]
+[ext_resource type="AudioStream" uid="uid://dt0s0p5vna4wn" path="res://assets/SFX/IG_interract_sfx.wav" id="5_8mwkp"]
 [ext_resource type="Script" uid="uid://beitjq1vre0u6" path="res://resource/dialouge/DialougeFunction.gd" id="6_8mwkp"]
 [ext_resource type="Script" uid="uid://dcoquvxvys1s" path="res://resource/dialouge/DialogueChoice.gd" id="7_i8oa5"]
 
@@ -15,12 +16,22 @@ radius = 73.8241
 script = ExtResource("4_3dr5k")
 text = "Thorns block you path."
 text_speed = 30.0
-volume = 0.0
+audioStream = ExtResource("5_8mwkp")
+volume = -8.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
 
 [sub_resource type="Resource" id="Resource_vggjh"]
+script = ExtResource("6_8mwkp")
+traget_path = NodePath("..")
+function_name = "on_interact"
+function_arg = []
+hide_dialogue_box = false
+wait_for_signal_to_continue = ""
+metadata/_custom_type_script = "uid://beitjq1vre0u6"
+
+[sub_resource type="Resource" id="Resource_8mwkp"]
 script = ExtResource("6_8mwkp")
 traget_path = NodePath("..")
 function_name = "thorns_cut"
@@ -29,12 +40,15 @@ hide_dialogue_box = false
 wait_for_signal_to_continue = ""
 metadata/_custom_type_script = "uid://beitjq1vre0u6"
 
-[sub_resource type="Resource" id="Resource_v2o7t"]
+[sub_resource type="Resource" id="Resource_i8oa5"]
 script = ExtResource("7_i8oa5")
-text = "Cut thorns?"
-choice_text = Array[String](["yes", "no"])
-choice_function_call = Array[ExtResource("6_8mwkp")]([SubResource("Resource_vggjh"), null])
+text = "Cut Thorns?"
+choice_text = Array[String](["Yes", "No"])
+choice_function_call = Array[ExtResource("6_8mwkp")]([SubResource("Resource_8mwkp"), null])
 metadata/_custom_type_script = "uid://dcoquvxvys1s"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vggjh"]
+radius = 126.036
 
 [node name="Thorn" type="StaticBody2D"]
 script = ExtResource("1_mt5km")
@@ -47,4 +61,16 @@ texture = ExtResource("1_1gb1c")
 shape = SubResource("CircleShape2D_1gb1c")
 
 [node name="DialogueMaker" parent="." instance=ExtResource("2_dm4rx")]
-dialouge = Array[ExtResource("3_67wyn")]([SubResource("Resource_mt5km"), SubResource("Resource_v2o7t")])
+dialouge = Array[ExtResource("3_67wyn")]([SubResource("Resource_mt5km"), SubResource("Resource_vggjh")])
+
+[node name="DialogueMaker2" parent="." instance=ExtResource("2_dm4rx")]
+activate_instant = true
+only_activate_once = true
+dialouge = Array[ExtResource("3_67wyn")]([SubResource("Resource_i8oa5")])
+
+[node name="CollisionShape2D" parent="DialogueMaker2/interactable" index="0"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_vggjh")
+disabled = true
+
+[editable path="DialogueMaker2"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwhwf6n57h3jx"]
+[gd_scene load_steps=7 format=3 uid="uid://bwhwf6n57h3jx"]
 
+[ext_resource type="Script" uid="uid://5pasygkw4l7g" path="res://scenes/props/cube.gd" id="1_1gix2"]
 [ext_resource type="Texture2D" uid="uid://bfnof7jhd2for" path="res://assets/art/props/Sprite-0002.png" id="1_fa3cx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa3cx"]
@@ -45,6 +46,7 @@ _data = {
 }
 
 [node name="cube" type="StaticBody2D"]
+script = ExtResource("1_1gix2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0.7, 1, 1)

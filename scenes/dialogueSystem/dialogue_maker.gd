@@ -18,6 +18,8 @@ var _disired_dialogue_pos : Vector2
 
 var _player: player
 
+signal dialouge_finished_maker
+
 func _ready() -> void:
 	for i in get_tree().get_nodes_in_group("Player"):
 		_player = i
@@ -45,7 +47,7 @@ func _activate_dialoge() -> void:
 
 func dialouge_finished() -> void:
 	if free_maker_after_finished:
-		print("freed")
+		dialouge_finished_maker.emit()
 		queue_free()
 
 func _on_interactable_interacted() -> void:

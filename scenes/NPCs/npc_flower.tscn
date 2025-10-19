@@ -1,0 +1,128 @@
+[gd_scene load_steps=17 format=3 uid="uid://mx2n7sngj3gj"]
+
+[ext_resource type="Texture2D" uid="uid://dkft81lff2qym" path="res://assets/art/npc/Bloom.png" id="1_oxud1"]
+[ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="2_fpjmy"]
+[ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="3_7b273"]
+[ext_resource type="AudioStream" uid="uid://jvssuuu2kiah" path="res://assets/SFX/IG_NPC_dial2_sfx.wav" id="4_2p6bq"]
+[ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="5_aiqlg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptb7l"]
+radius = 20.0
+height = 200.0
+
+[sub_resource type="Resource" id="Resource_qyina"]
+script = ExtResource("5_aiqlg")
+text = "A slumber did my spirit seal."
+text_speed = 16.0
+audioStream = ExtResource("4_2p6bq")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_nt8do"]
+script = ExtResource("5_aiqlg")
+text = "I had no human fears."
+text_speed = 16.0
+audioStream = ExtResource("4_2p6bq")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_gvek3"]
+script = ExtResource("5_aiqlg")
+text = "She seemed a thing that could not feel"
+text_speed = 16.0
+audioStream = ExtResource("4_2p6bq")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_w4c1x"]
+script = ExtResource("5_aiqlg")
+text = "The touch of earthly years."
+text_speed = 16.0
+audioStream = ExtResource("4_2p6bq")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_5xpy1"]
+script = ExtResource("5_aiqlg")
+text = "No motion has she now, no force."
+text_speed = 16.0
+audioStream = ExtResource("4_2p6bq")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_3dxkf"]
+script = ExtResource("5_aiqlg")
+text = "She neither hears nor sees."
+text_speed = 16.0
+audioStream = ExtResource("4_2p6bq")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_v5rl4"]
+script = ExtResource("5_aiqlg")
+text = "Rolled round in earth's diurnal course"
+text_speed = 16.0
+audioStream = ExtResource("4_2p6bq")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_oxud1"]
+script = ExtResource("5_aiqlg")
+text = "Rolled round in earth's diurnal course"
+text_speed = 16.0
+audioStream = ExtResource("4_2p6bq")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_fpjmy"]
+script = ExtResource("5_aiqlg")
+text = "With rocks, and stones, and trees."
+text_speed = 16.0
+audioStream = ExtResource("4_2p6bq")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_7b273"]
+script = ExtResource("5_aiqlg")
+text = "With rocks, and stones, and trees."
+text_speed = 16.0
+audioStream = ExtResource("4_2p6bq")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[node name="NPCFlower" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6, -47)
+scale = Vector2(3, 3)
+texture = ExtResource("1_oxud1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 21)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ptb7l")
+
+[node name="DialogueMaker" parent="." instance=ExtResource("2_fpjmy")]
+position = Vector2(2, -34)
+dialouge = Array[ExtResource("3_7b273")]([SubResource("Resource_qyina"), SubResource("Resource_nt8do"), SubResource("Resource_gvek3"), SubResource("Resource_w4c1x"), SubResource("Resource_5xpy1"), SubResource("Resource_3dxkf"), SubResource("Resource_v5rl4"), SubResource("Resource_oxud1"), SubResource("Resource_fpjmy"), SubResource("Resource_7b273")])
+metadata/_edit_lock_ = true
