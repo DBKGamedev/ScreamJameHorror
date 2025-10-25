@@ -3,6 +3,7 @@ extends Node
 const ROOM_1 = preload("res://scenes/Rooms/room_1.tscn")
 const ROOM_2 = preload("res://scenes/Rooms/room_2.tscn")
 const ROOM_3 = preload("res://scenes/Rooms/room_3.tscn")
+const ROOM_4 = preload("res://scenes/Rooms/room_4.tscn")
 const ROOM_TRAFFIC = preload("res://scenes/Rooms/room_traffic.tscn")
 
 var spawn_door_tag
@@ -21,6 +22,9 @@ func go_to_level(level_tag: String, destination_tag: String) -> void:
 		
 		"room_3":
 			_scene_to_load = ROOM_3
+		
+		"room_4":
+			_scene_to_load = ROOM_4
 		
 		"room_traffic":
 			_scene_to_load = ROOM_TRAFFIC

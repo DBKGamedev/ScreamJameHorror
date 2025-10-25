@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cvhjh0koi4v1p" path="res://assets/art/props/Black_Door_Down.png" id="3_blul7"]
 [ext_resource type="PackedScene" uid="uid://bwhwf6n57h3jx" path="res://scenes/props/cube.tscn" id="4_5en0u"]
 [ext_resource type="PackedScene" uid="uid://b440u4pbfdpwr" path="res://scenes/player/player.tscn" id="5_oem5j"]
-[ext_resource type="PackedScene" uid="uid://d4nf0q4j74sad" path="res://scenes/Rooms/npc_traffic.tscn" id="6_oem5j"]
+[ext_resource type="PackedScene" uid="uid://d4nf0q4j74sad" path="res://scenes/NPCs/npc_traffic.tscn" id="6_oem5j"]
 
 [node name="RoomBase" instance=ExtResource("1_u7ydr")]
 

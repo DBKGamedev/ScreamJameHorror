@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bawqv04le46ea"]
+[gd_scene load_steps=39 format=4 uid="uid://bawqv04le46ea"]
 
 [ext_resource type="PackedScene" uid="uid://blhbhh3455tc3" path="res://scenes/Rooms/room_base.tscn" id="1_rtcsv"]
 [ext_resource type="PackedScene" uid="uid://cbp3dtejadt1j" path="res://scenes/door/door.tscn" id="2_nqbcp"]
@@ -7,10 +7,101 @@
 [ext_resource type="PackedScene" uid="uid://b440u4pbfdpwr" path="res://scenes/player/player.tscn" id="4_k8wj4"]
 [ext_resource type="PackedScene" uid="uid://budckitqvwpww" path="res://scenes/props/tree.tscn" id="5_wqbkt"]
 [ext_resource type="PackedScene" uid="uid://mx2n7sngj3gj" path="res://scenes/NPCs/npc_flower.tscn" id="6_7yloi"]
+[ext_resource type="PackedScene" uid="uid://cipokhg7yepr5" path="res://scenes/props/thorn.tscn" id="6_71cdj"]
 [ext_resource type="PackedScene" uid="uid://cenxq67wh60tj" path="res://scenes/NPCs/npc_cone.tscn" id="7_bw7vn"]
+[ext_resource type="PackedScene" uid="uid://cc7bflpmqm66j" path="res://scenes/props/stopsign.tscn" id="7_ylber"]
+[ext_resource type="Texture2D" uid="uid://c8hayqv0012m2" path="res://assets/art/props/Props_splashred.png" id="8_4w2ku"]
 [ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="8_jahxq"]
+[ext_resource type="PackedScene" uid="uid://dg317ksyxh0w0" path="res://scenes/props/box.tscn" id="9_4w2ku"]
 [ext_resource type="AudioStream" uid="uid://c3n3e8ix2rni5" path="res://assets/SFX/IG_NPC_dial1_sfx.wav" id="9_scqlr"]
 [ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="10_71cdj"]
+[ext_resource type="AudioStream" uid="uid://dt0s0p5vna4wn" path="res://assets/SFX/IG_interract_sfx.wav" id="11_7a4jw"]
+[ext_resource type="Script" uid="uid://s3ac2o7uje54" path="res://scenes/props/BoxKey.gd" id="13_rikjp"]
+[ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="17_ltkha"]
+[ext_resource type="Script" uid="uid://beitjq1vre0u6" path="res://resource/dialouge/DialougeFunction.gd" id="18_rikjp"]
+[ext_resource type="Texture2D" uid="uid://cv2awmott23vt" path="res://assets/art/npc/Shattered.png" id="19_jkdg6"]
+
+[sub_resource type="Resource" id="Resource_kckrr"]
+script = ExtResource("10_71cdj")
+text = "You look into the box."
+text_speed = 30.0
+audioStream = ExtResource("11_7a4jw")
+volume = -8.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_7a4jw"]
+script = ExtResource("10_71cdj")
+text = "You found some junk."
+text_speed = 30.0
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_rikjp"]
+script = ExtResource("10_71cdj")
+text = "There is nothing here."
+text_speed = 30.0
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_05sey"]
+script = ExtResource("10_71cdj")
+text = "You found a key."
+text_speed = 30.0
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_wwtgw"]
+script = ExtResource("18_rikjp")
+traget_path = NodePath("..")
+function_name = "key"
+function_arg = []
+hide_dialogue_box = false
+wait_for_signal_to_continue = ""
+metadata/_custom_type_script = "uid://beitjq1vre0u6"
+
+[sub_resource type="Resource" id="Resource_5apao"]
+script = ExtResource("10_71cdj")
+text = "You found a wilted rose."
+text_speed = 30.0
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_um3di"]
+script = ExtResource("10_71cdj")
+text = "You found a tree branch."
+text_speed = 30.0
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_jkdg6"]
+script = ExtResource("10_71cdj")
+text = "You found a toy car."
+text_speed = 30.0
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_ltkha"]
+script = ExtResource("10_71cdj")
+text = "You found a document."
+text_speed = 30.0
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
 
 [sub_resource type="Resource" id="Resource_ylber"]
 script = ExtResource("10_71cdj")
@@ -31,6 +122,61 @@ volume = -8.0
 camera_position = Vector2(999.999, 999.999)
 camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_3hwyg"]
+script = ExtResource("10_71cdj")
+text = "[shake][wave]AHHH! WAIT[/wave][/shake]"
+text_speed = 22.0
+audioStream = ExtResource("9_scqlr")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_w1s7j"]
+script = ExtResource("18_rikjp")
+traget_path = NodePath("../NPCShattered")
+function_name = "show"
+function_arg = []
+hide_dialogue_box = false
+wait_for_signal_to_continue = ""
+metadata/_custom_type_script = "uid://beitjq1vre0u6"
+
+[sub_resource type="Resource" id="Resource_beh5k"]
+script = ExtResource("10_71cdj")
+text = "[shake][wave]PLEASE DON'T COME ANY CLOSER![/wave][/shake]"
+text_speed = 22.0
+audioStream = ExtResource("9_scqlr")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="Resource" id="Resource_rp8db"]
+script = ExtResource("10_71cdj")
+text = "[shake][wave]PLEASE! JUST LEAVE ME ALONE![/wave][/shake]"
+text_speed = 22.0
+audioStream = ExtResource("9_scqlr")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3dm2y"]
+radius = 17.8857
+
+[sub_resource type="Resource" id="Resource_3dm2y"]
+script = ExtResource("10_71cdj")
+text = "[shake][wave]PLEASE! JUST LEAVE ME ALONE![/wave][/shake]"
+text_speed = 22.0
+audioStream = ExtResource("9_scqlr")
+volume = 0.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rp8db"]
+radius = 46.2709
 
 [node name="RoomBase" instance=ExtResource("1_rtcsv")]
 
@@ -57,6 +203,15 @@ position = Vector2(-841, 305)
 destination_scene_tag = "room_traffic"
 destination_door_tag = "f"
 spawn_dir = "down"
+
+[node name="Door_g" parent="Door" index="2" instance=ExtResource("2_nqbcp")]
+position = Vector2(-3073, -975)
+destination_scene_tag = "room_4"
+destination_door_tag = "h"
+spawn_dir = "down"
+
+[node name="DoorSprite" parent="Door/Door_g" index="0"]
+visible = false
 
 [node name="Props" parent="." index="2"]
 y_sort_enabled = true
@@ -104,6 +259,215 @@ scale = Vector2(1, -1)
 [node name="Tree" parent="Props" index="10" instance=ExtResource("5_wqbkt")]
 position = Vector2(197, 939)
 
+[node name="Tree2" parent="Props" index="11" instance=ExtResource("5_wqbkt")]
+position = Vector2(-1321.35, 1061.98)
+
+[node name="Tree3" parent="Props" index="12" instance=ExtResource("5_wqbkt")]
+position = Vector2(-1600.67, 826.595)
+
+[node name="Tree4" parent="Props" index="13" instance=ExtResource("5_wqbkt")]
+position = Vector2(-1327.63, 788.933)
+
+[node name="Tree5" parent="Props" index="14" instance=ExtResource("5_wqbkt")]
+position = Vector2(-1675.99, 1102.78)
+
+[node name="Tree6" parent="Props" index="15" instance=ExtResource("5_wqbkt")]
+position = Vector2(-1868, 951)
+
+[node name="Tree7" parent="Props" index="16" instance=ExtResource("5_wqbkt")]
+position = Vector2(-1756.77, 310.968)
+
+[node name="Tree8" parent="Props" index="17" instance=ExtResource("5_wqbkt")]
+position = Vector2(-1295, 422)
+
+[node name="Tree9" parent="Props" index="18" instance=ExtResource("5_wqbkt")]
+position = Vector2(-1460, 316)
+
+[node name="Tree10" parent="Props" index="19" instance=ExtResource("5_wqbkt")]
+position = Vector2(-2304, 999)
+
+[node name="Thorn" parent="Props" index="20" instance=ExtResource("6_71cdj")]
+position = Vector2(-968, 882)
+
+[node name="Thorn2" parent="Props" index="21" instance=ExtResource("6_71cdj")]
+position = Vector2(-1530, 447)
+
+[node name="PropsStopsign" parent="Props" index="22" instance=ExtResource("7_ylber")]
+position = Vector2(-3387, -388)
+
+[node name="PropsStopsign2" parent="Props" index="23" instance=ExtResource("7_ylber")]
+position = Vector2(-2675, -383)
+
+[node name="PropsStopsign3" parent="Props" index="24" instance=ExtResource("7_ylber")]
+position = Vector2(-3248, -659)
+
+[node name="PropsStopsign4" parent="Props" index="25" instance=ExtResource("7_ylber")]
+position = Vector2(-2757, -771)
+
+[node name="PropsStopsign5" parent="Props" index="26" instance=ExtResource("7_ylber")]
+position = Vector2(-2966, -494)
+
+[node name="PropsSplashred" type="Sprite2D" parent="Props" index="27"]
+position = Vector2(159, 1509)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred2" type="Sprite2D" parent="Props" index="28"]
+position = Vector2(273, 1272)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred3" type="Sprite2D" parent="Props" index="29"]
+position = Vector2(-1, 1012)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred4" type="Sprite2D" parent="Props" index="30"]
+position = Vector2(-487, 925)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred5" type="Sprite2D" parent="Props" index="31"]
+position = Vector2(-1932.38, 967.625)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred6" type="Sprite2D" parent="Props" index="32"]
+position = Vector2(-1160.92, 896.185)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred7" type="Sprite2D" parent="Props" index="33"]
+position = Vector2(-1160.92, 896.185)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred8" type="Sprite2D" parent="Props" index="34"]
+position = Vector2(-2335.94, 718.263)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred9" type="Sprite2D" parent="Props" index="35"]
+position = Vector2(-2563.42, 311.698)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred10" type="Sprite2D" parent="Props" index="36"]
+position = Vector2(-3003.4, 164.425)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred11" type="Sprite2D" parent="Props" index="37"]
+position = Vector2(-3056.06, -443.604)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred12" type="Sprite2D" parent="Props" index="38"]
+position = Vector2(-2942.68, -702.252)
+texture = ExtResource("8_4w2ku")
+
+[node name="PropsSplashred13" type="Sprite2D" parent="Props" index="39"]
+position = Vector2(-3081.18, -882.182)
+texture = ExtResource("8_4w2ku")
+
+[node name="box" parent="Props" index="40" instance=ExtResource("9_4w2ku")]
+position = Vector2(-1509, 926)
+
+[node name="DialogueMaker" parent="Props/box" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_7a4jw")])
+
+[node name="box3" parent="Props" index="41" instance=ExtResource("9_4w2ku")]
+position = Vector2(-2934.14, 771.566)
+
+[node name="DialogueMaker" parent="Props/box3" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_rikjp")])
+
+[node name="box4" parent="Props" index="42" instance=ExtResource("9_4w2ku")]
+position = Vector2(-3108.63, 1177.13)
+
+[node name="DialogueMaker" parent="Props/box4" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_7a4jw")])
+
+[node name="box5" parent="Props" index="43" instance=ExtResource("9_4w2ku")]
+position = Vector2(-2588.89, -641.466)
+
+[node name="DialogueMaker" parent="Props/box5" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_7a4jw")])
+
+[node name="box6" parent="Props" index="44" instance=ExtResource("9_4w2ku")]
+position = Vector2(-3170.93, -513.075)
+
+[node name="DialogueMaker" parent="Props/box6" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_7a4jw")])
+
+[node name="boxkey" parent="Props" index="45" instance=ExtResource("9_4w2ku")]
+position = Vector2(-2854.23, -866.862)
+script = ExtResource("13_rikjp")
+
+[node name="DialogueMaker" parent="Props/boxkey" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_05sey"), SubResource("Resource_wwtgw")])
+
+[node name="box8" parent="Props" index="46" instance=ExtResource("9_4w2ku")]
+position = Vector2(-2802.87, -410.363)
+
+[node name="DialogueMaker" parent="Props/box8" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_5apao")])
+
+[node name="box9" parent="Props" index="47" instance=ExtResource("9_4w2ku")]
+position = Vector2(-3339.26, -829.771)
+
+[node name="DialogueMaker" parent="Props/box9" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_um3di")])
+
+[node name="box10" parent="Props" index="48" instance=ExtResource("9_4w2ku")]
+position = Vector2(-2944.04, 352.767)
+
+[node name="DialogueMaker" parent="Props/box10" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_7a4jw")])
+
+[node name="box11" parent="Props" index="49" instance=ExtResource("9_4w2ku")]
+position = Vector2(-1671.55, -203.591)
+
+[node name="DialogueMaker" parent="Props/box11" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_7a4jw")])
+
+[node name="box12" parent="Props" index="50" instance=ExtResource("9_4w2ku")]
+position = Vector2(-2207.93, -349.1)
+
+[node name="DialogueMaker" parent="Props/box12" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_7a4jw")])
+
+[node name="box13" parent="Props" index="51" instance=ExtResource("9_4w2ku")]
+position = Vector2(-1223.61, -277.772)
+
+[node name="DialogueMaker" parent="Props/box13" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_jkdg6")])
+
+[node name="box14" parent="Props" index="52" instance=ExtResource("9_4w2ku")]
+position = Vector2(-752.843, -226.416)
+
+[node name="DialogueMaker" parent="Props/box14" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_7a4jw")])
+
+[node name="boxdoc" parent="Props" index="53" instance=ExtResource("9_4w2ku")]
+position = Vector2(-2251.28, 1128.23)
+
+[node name="DialogueMaker" parent="Props/boxdoc" index="2"]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_kckrr"), SubResource("Resource_ltkha")])
+
+[node name="Thorn3" parent="Props" index="54" instance=ExtResource("6_71cdj")]
+position = Vector2(-2077, -268)
+
+[node name="Thorn4" parent="Props" index="55" instance=ExtResource("6_71cdj")]
+position = Vector2(-1785.62, -334.173)
+
+[node name="Thorn5" parent="Props" index="56" instance=ExtResource("6_71cdj")]
+position = Vector2(-1049.94, -218.634)
+
+[node name="Thorn6" parent="Props" index="57" instance=ExtResource("6_71cdj")]
+position = Vector2(-861.305, -353.037)
+
+[node name="Tree11" parent="Props" index="58" instance=ExtResource("5_wqbkt")]
+position = Vector2(-3013, 1282)
+
+[node name="Tree12" parent="Props" index="59" instance=ExtResource("5_wqbkt")]
+position = Vector2(-2730, 985)
+
+[node name="Tree13" parent="Props" index="60" instance=ExtResource("5_wqbkt")]
+position = Vector2(-3089, 730)
+
+[node name="Tree14" parent="Props" index="61" instance=ExtResource("5_wqbkt")]
+position = Vector2(-3087, 369)
+
 [node name="NPCFlower" parent="." index="3" instance=ExtResource("6_7yloi")]
 position = Vector2(3433, 927)
 
@@ -114,7 +478,60 @@ position = Vector2(-1802, 1130)
 dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_ylber"), SubResource("Resource_4w2ku")])
 
 [node name="Player" parent="." index="5" instance=ExtResource("4_k8wj4")]
-position = Vector2(212, 1054)
+position = Vector2(-846.278, 427.389)
+
+[node name="DialogueMaker" parent="." index="6" instance=ExtResource("17_ltkha")]
+position = Vector2(-2336.74, 167.707)
+activate_instant = true
+only_activate_once = true
+free_maker_after_finished = true
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_3hwyg"), SubResource("Resource_w1s7j"), SubResource("Resource_beh5k"), SubResource("Resource_rp8db")])
+
+[node name="CollisionShape2D" parent="DialogueMaker/interactable" index="0"]
+shape = SubResource("CircleShape2D_3dm2y")
+
+[node name="NPCShattered" type="Sprite2D" parent="." index="7"]
+visible = false
+z_index = -1
+position = Vector2(-2336.08, 93.8395)
+texture = ExtResource("19_jkdg6")
+
+[node name="DialogueMaker" parent="NPCShattered" index="0" instance=ExtResource("17_ltkha")]
+dialouge = Array[ExtResource("8_jahxq")]([SubResource("Resource_3dm2y")])
+
+[node name="CollisionShape2D" parent="NPCShattered/DialogueMaker/interactable" index="0"]
+shape = SubResource("CircleShape2D_rp8db")
 
 [editable path="Door/Door_d"]
+[editable path="Door/Door_g"]
+[editable path="Props/box"]
+[editable path="Props/box/DialogueMaker"]
+[editable path="Props/box3"]
+[editable path="Props/box3/DialogueMaker"]
+[editable path="Props/box4"]
+[editable path="Props/box4/DialogueMaker"]
+[editable path="Props/box5"]
+[editable path="Props/box5/DialogueMaker"]
+[editable path="Props/box6"]
+[editable path="Props/box6/DialogueMaker"]
+[editable path="Props/boxkey"]
+[editable path="Props/boxkey/DialogueMaker"]
+[editable path="Props/box8"]
+[editable path="Props/box8/DialogueMaker"]
+[editable path="Props/box9"]
+[editable path="Props/box9/DialogueMaker"]
+[editable path="Props/box10"]
+[editable path="Props/box10/DialogueMaker"]
+[editable path="Props/box11"]
+[editable path="Props/box11/DialogueMaker"]
+[editable path="Props/box12"]
+[editable path="Props/box12/DialogueMaker"]
+[editable path="Props/box13"]
+[editable path="Props/box13/DialogueMaker"]
+[editable path="Props/box14"]
+[editable path="Props/box14/DialogueMaker"]
+[editable path="Props/boxdoc"]
+[editable path="Props/boxdoc/DialogueMaker"]
 [editable path="NPCCone"]
+[editable path="DialogueMaker"]
+[editable path="NPCShattered/DialogueMaker"]
