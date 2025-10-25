@@ -616,7 +616,6 @@ position = Vector2(-363, -352)
 position = Vector2(2803, -2131)
 
 [node name="PropsStopsign" parent="Props" index="131" instance=ExtResource("8_8gcm7")]
-z_index = 0
 position = Vector2(-758, -654)
 
 [node name="Person" parent="Props" index="132" instance=ExtResource("9_vimkw")]
