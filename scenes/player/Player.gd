@@ -2,10 +2,12 @@ extends CharacterBody2D
 class_name player
 
 # Movement variables
-@export var speed := 135.0
+@export var speed := 120.0
 @export var rotate_sprite := false
 
 @onready var animation_tree: AnimationTree = $AnimationTree
+
+const IG_HEALTHDOWN_SFX = preload("res://assets/SFX/IG_death_sfx.wav")
 
 var health_component: HealthComponent
 var can_move : bool = true
@@ -44,6 +46,7 @@ func test():
 
 func take_damage(amount: int):
 	if health_component:
+		AudioManager.play_sfx(IG_HEALTHDOWN_SFX, -8)
 		health_component.subtract_health(amount)
 
 func heal(amount: int):

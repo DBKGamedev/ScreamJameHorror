@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpxjbatgfybca"]
+
+[ext_resource type="Texture2D" uid="uid://do1ne6rkr3gik" path="res://assets/art/props/Doorlock_Up.png" id="1_s6a71"]
+[ext_resource type="PackedScene" uid="uid://biyy153h1xls5" path="res://scenes/dialogueSystem/dialogue_maker.tscn" id="2_6x8pi"]
+[ext_resource type="Script" uid="uid://gk13fr38dm5l" path="res://resource/dialouge/DialogueExport.gd" id="3_v1ipg"]
+[ext_resource type="AudioStream" uid="uid://dt0s0p5vna4wn" path="res://assets/SFX/IG_interract_sfx.wav" id="4_2tfum"]
+[ext_resource type="Script" uid="uid://5gbjv0l5by6o" path="res://resource/dialouge/DialougeText.gd" id="5_qt36o"]
+
+[sub_resource type="Resource" id="Resource_o3vwn"]
+script = ExtResource("5_qt36o")
+text = "The Door is locked"
+text_speed = 30.0
+audioStream = ExtResource("4_2tfum")
+volume = -8.0
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://5gbjv0l5by6o"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xojhr"]
+radius = 50.01
+
+[node name="DoorLock" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s6a71")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 48)
+
+[node name="DialogueMaker" parent="." instance=ExtResource("2_6x8pi")]
+dialouge = Array[ExtResource("3_v1ipg")]([SubResource("Resource_o3vwn")])
+
+[node name="CollisionShape2D" parent="DialogueMaker/interactable" index="0"]
+shape = SubResource("CircleShape2D_xojhr")
+
+[editable path="DialogueMaker"]

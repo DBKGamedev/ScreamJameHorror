@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cofuoruqqnjss"]
+
+[ext_resource type="PackedScene" uid="uid://s3mqdvtvim8h" path="res://scenes/enemy/jumpscare.tscn" id="1_omk27"]
+[ext_resource type="Texture2D" uid="uid://dvglr17wotxmg" path="res://assets/art/npc/Sign.png" id="2_0gsax"]
+
+[node name="Jumpscare" instance=ExtResource("1_omk27")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_0gsax")
